@@ -11,28 +11,39 @@
 
 (function(){
     var word = document.querySelector('.word')
+    var input = document.querySelector('.inputbox')
     var tmpl = document.querySelector('#charbox-template');
 
     if (!location.hash) {
         location.hash = '*hello*';
     }
 
-    function clearWord() {
+    function clearChars() {
         while (word.firstChild) {
             word.removeChild(word.firstChild);
         }
     }
 
     function onHashChange() {
-        clearWord();
+        clearChars();
         var text = decodeURIComponent(location.href.split('#')[1] || '');
         text.split('').forEach(function(chr) {
             var charbox = tmpl.content.cloneNode(true);
-            charbox.querySelector('.char').textContent = chr;
+            var charElem = charbox.querySelector('.char');
+            charElem.textContent = chr;
+            if (!chr.match(/[a-z]/i)) {
+                charElem.className = 'symbol';
+            }
             word.appendChild(charbox);
         });
+        input.value = text;
     }
 
+    function onInput(evt) {
+        location.hash = encodeURIComponent(evt.target.value);
+    }
+
+    input.addEventListener('input', onInput, false);
     window.addEventListener('hashchange', onHashChange, false);
 
     onHashChange();
