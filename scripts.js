@@ -30,7 +30,11 @@
         text.split('').forEach(function(chr) {
             var charbox = tmpl.content.cloneNode(true);
             var charElem = charbox.querySelector('.char');
-            charElem.textContent = chr;
+            if (chr !== ' ') {
+                charElem.textContent = chr;
+            } else {
+                charElem.innerHTML = '&nbsp;';
+            }
             if (!chr.match(/[a-z]/i)) {
                 charElem.className = 'symbol';
             }
