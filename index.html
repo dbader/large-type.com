@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Large Type</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+
+    <!-- TODO: Add Twitter card meta tags -->
+
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <template id="charbox-template">
+      <li class="charbox">
+        <span class="char"></span>
+      </li>
+    </template>
+
+    <div class="main">
+
+      <ul class="word">
+        <!-- Populated dynamically -->
+      </ul>
+
+      <span class="about">
+        Made with love by <a href="https://dbader.org">Daniel Bader</a> &mdash;
+        Fork or suggest edits on <a href="https://github.com/dbader/large-type.com">GitHub</a> &mdash;
+        <a href="https://twitter.com/dbader_org" class="twitter-follow-button"
+           data-show-count="false">Follow @dbader_org</a>
+        <a href="https://twitter.com/share" class="twitter-share-button"
+           data-url="https://large-type.com"
+           data-text="Show and share BIG TEXT with this website"
+           data-via="dbader_org" data-related="dbader_org">Tweet</a>
+      </span>
+
+    </div>
+
+
+    <script src="scripts.js"></script>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+  </body>
+</html>
