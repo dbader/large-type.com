@@ -63,6 +63,11 @@ html, body {
     content: counter(num-chars);
 }
 
+@keyframes fadein {
+    from {opacity: 0;}
+    to {opacity: 1.0;}
+}
+
 .about {
     font-family: sans-serif;
     display: block;
@@ -70,6 +75,14 @@ html, body {
     width: 100%;
     text-align: center;
     bottom: 10px;
+
+    opacity: 0;
+    animation-name: fadein;
+    animation-timing-function: ease;
+    animation-duration: 1.5s;
+    animation-delay: 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
 
 .about a {
