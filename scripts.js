@@ -7,6 +7,10 @@
 var word = document.querySelector('.word')
 var tmpl = document.querySelector('#charbox-template');
 
+if (!location.hash) {
+    location.hash = 'welcome';
+}
+
 function clearWord() {
     while (word.firstChild) {
         word.removeChild(word.firstChild);
