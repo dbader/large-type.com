@@ -64,7 +64,7 @@
         location.hash = encodeURIComponent(evt.target.value);
     }
 
-    function onWordClick(evt) {
+    function enterInputMode(evt) {
         var defaultHash = '#' + encodeURIComponent(WELCOME_MSG);
         if (location.hash === defaultHash) {
             location.hash = '';
@@ -74,7 +74,8 @@
     }
 
     input.addEventListener('input', onInput, false);
-    word.addEventListener('click', onWordClick)
+    word.addEventListener('click', enterInputMode, false);
+    window.addEventListener('keydown', enterInputMode, false);
     window.addEventListener('hashchange', onHashChange, false);
 
     onHashChange();
