@@ -70,8 +70,12 @@ html, body {
     counter-increment: num-chars;
 }
 
-.word li .symbol {
+.word li .number {
     color: #456cad;
+}
+
+.word li .symbol {
+    color: #b94669;
 }
 
 .word li:nth-child(odd) {

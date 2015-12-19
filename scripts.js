@@ -45,7 +45,9 @@
                 charElem.innerHTML = '&nbsp;';
             }
 
-            if (!chr.match(/[a-z]/i)) {
+            if (chr.match(/[0-9]/i)) {
+                charElem.className = 'number';
+            } else if (!chr.match(/[a-z]/i)) {
                 charElem.className = 'symbol';
             }
 
