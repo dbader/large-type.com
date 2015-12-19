@@ -1,4 +1,4 @@
-# [large-type.com](http://large-type.com) -- Display and share messages in VERY LARGE TEXT from your browser
+# [large-type.com](http://large-type.com) – Display and share messages in VERY LARGE TEXT from your browser
 
 ![](twitter-card.png)
 
@@ -14,7 +14,7 @@ Here are some ideas:
     * [large-type.com/#192.168.1.23](http://large-type.com/#192.168.1.23)
 
 * Share a password?
-    * [large-type.com/#3Rs%xw8y$Jtnu](http://large-type.com/#3Rs%xw8y$Jtnu)
+    * [large-type.com/#3Rs%xw8y$Jtnu](http://large-type.com/#3Rs%25xw8y%24Jtnu)
 
 * Need a giant timer notification?
     * `$ sleep 10; open http://large-type.com/#Done!`
@@ -23,7 +23,7 @@ Here are some ideas:
     * `$ make; open http://large-type.com/#Done!`
 
 * Secret message for a loved one?
-    * [large-type.com/#I❤️U](http://large-type.com/#I%E2%9D%A4%EF%B8%8FU)
+    * [large-type.com/#I❤U](http://large-type.com/#I❤U)
 
 ### How do I use it?
 
