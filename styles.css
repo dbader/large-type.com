@@ -96,6 +96,7 @@ input::-webkit-input-placeholder {
 .inputarea {
     position: absolute;
     top: 0;
+    left: 0;
     width: 30%;
     margin-left: 35%;
     margin-right: 35%;
@@ -174,6 +175,7 @@ input::-webkit-input-placeholder {
     width: 100%;
     text-align: center;
     bottom: 10px;
+    left: 0;
 
     opacity: 0;
     animation-name: fade-in;
