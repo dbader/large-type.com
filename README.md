@@ -2,12 +2,18 @@
 
 ![](twitter-card.png)
 
+Large-type.com let's you display messages in very large text directly from your browser. Whoa!
+
+That's handy whenever you need to read something on your screen from further away—for example, a phone number. Nice!
+
+Even better, when you share text with large-type.com only the person with the link sees your text. Rendering happens locally on your browser and your text is not transmitted to any servers.
+
 ## FAQs
 
 ### What do I use this for?
 Here are some ideas:
 
-* Remember that phone number while you're standing across the room?
+* Read that phone number from across the room?
     * [large-type.com/#(555)-123-456](http://large-type.com/#(555)-123-456)
 
 * Co-worker needs to know your IP address?
@@ -25,10 +31,8 @@ Here are some ideas:
 * Waiting for your code to compile?
     * `$ make; open http://large-type.com/#Done!`
 
-* Secret message for a loved one?
+* Profess your love from a runaway train?
     * [large-type.com/#I❤U](http://large-type.com/#I❤U)
-
-### How do I use it?
 
 ### I found a bug! Now what?
 Awesome! Please create an issue ticket on GitHub (and if you have a really good day, maybe a pull request 😃) so we can fix it. Thanks!
