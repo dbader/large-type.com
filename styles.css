@@ -28,6 +28,15 @@ a:visited {
     color: #b94669;
 }
 
+a:hover {
+    color: #D36083;
+    text-decoration: underline;
+}
+
+a:active {
+    color: #A02D50;
+}
+
 input {
     font-size: 12px;
     font-family: sans-serif;
@@ -104,11 +113,11 @@ input::-webkit-input-placeholder {
     padding: 2px;
     margin: 5px 2px;
     color: #ccc;
-    text-decoration: underline;
 }
 
 .inputarea a:hover {
     color: #222;
+    text-decoration: underline;
 }
 
 .word {
@@ -216,7 +225,6 @@ input::-webkit-input-placeholder {
     cursor: pointer;
     color: #fff;
     background: #b94669;
-    /*background: #7aa76d;*/
     font-size: 15px;
     outline: none;
     -webkit-transition: 0.15s background ease;
@@ -227,10 +235,10 @@ input::-webkit-input-placeholder {
 }
 
 .modal button:hover {
-    background: #91cd85;
+    background: #D36083;
 }
 .modal button:active {
-    background: #60895a;
+    background: #A02D50;
 }
 
 .modal input {
