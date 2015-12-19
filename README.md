@@ -16,6 +16,9 @@ Here are some ideas:
 * Share a password?
     * [large-type.com/#3Rs%xw8y$Jtnu](http://large-type.com/#3Rs%25xw8y%24Jtnu)
 
+* Important announcement on social media?
+    * [large-type.com/##YOLO](http://large-type.com/#%23YOLO)
+
 * Need a giant timer notification?
     * `$ sleep 10; open http://large-type.com/#Done!`
 
