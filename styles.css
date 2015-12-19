@@ -1,38 +1,41 @@
+/*** Common ***********************************************************/
 * {
     margin: 0;
     padding: 0;
 }
 
-@keyframes fade-in {
-    from {opacity: 0;}
-    to {opacity: 1.0;}
-}
-
 html, body {
     height: 100%;
+    overflow: hidden;
+    font-family: sans-serif;
 }
 
-.main {
-    color: #222;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+h1, h2 {
+    font-size: 200%;
 }
 
-.main input {
-    position: absolute;
-    top: 0;
-    width: 30%;
-    margin-left: 35%;
-    margin-right: 35%;
-    margin-top: 10px;
+p {
+    margin: 10px 0 10px 0;
+    line-height: 1.32;
+}
+
+a {
+    color: #b94669;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #b94669;
+}
+
+input {
     font-size: 12px;
+    font-family: sans-serif;
+
     text-align: center;
     min-height: 26px;
     padding: 2px;
+    width: 100%;
 
     border: 1px solid #ccc;
     border-radius: 3px;
@@ -48,9 +51,64 @@ html, body {
     animation-fill-mode: forwards;*/
 }
 
-.main input:focus {
+input:focus {
     outline: none;
     box-shadow: inset 0 1px 2px rgba(0,0,0,0.075), 0 0 5px rgba(81,167,232,0.5);
+}
+
+input::-webkit-input-placeholder {
+    color: #ccc;
+}
+
+/*** Anims ************************************************************/
+
+@keyframes fade-in {
+    from {opacity: 0;}
+    to {opacity: 1.0;}
+}
+
+/*** Main *************************************************************/
+
+.main {
+    color: #222;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.blurred {
+    -webkit-filter: blur(5px) grayscale(50%);
+    pointer-events: none;
+}
+
+.inputarea {
+    position: absolute;
+    top: 0;
+    width: 30%;
+    margin-left: 35%;
+    margin-right: 35%;
+    margin-top: 10px;
+
+    font-size: 12px;
+}
+
+.inputarea .button-row {
+    display: flex;
+    justify-content: center;
+}
+
+.inputarea a {
+    padding: 2px;
+    margin: 5px 2px;
+    color: #ccc;
+    text-decoration: underline;
+}
+
+.inputarea a:hover {
+    color: #222;
 }
 
 .word {
@@ -117,15 +175,83 @@ html, body {
     animation-fill-mode: forwards;
 }
 
-.about a {
-    color: darkred;
-    text-decoration: none;
-}
-
 .twitter-follow-button {
     vertical-align: text-bottom;
 }
 
 .twitter-share-button {
     vertical-align: text-bottom;
+}
+
+/*** Modal ************************************************************/
+
+.modal {
+    background: white;
+
+    z-index: 99;
+    position: absolute;
+    width: 50%;
+    top: 25%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+
+    padding: 20px;
+    border-radius: 3px;
+    box-shadow: 0px 0px 20px rgba( 0, 0, 0, 0.6);
+
+    transform: scale(1.5);
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: all 0.25s ease;
+}
+
+.modal button {
+    float: right;
+    border: 0px;
+    padding: 8px 10px;
+    margin: 10px -6px 0 0;
+    border-radius: 1px;
+    cursor: pointer;
+    color: #fff;
+    background: #b94669;
+    /*background: #7aa76d;*/
+    font-size: 15px;
+    outline: none;
+    -webkit-transition: 0.15s background ease;
+    -moz-transition: 0.15s background ease;
+    -ms-transition: 0.15s background ease;
+    -o-transition: 0.15s background ease;
+    transition: 0.15s background ease;
+}
+
+.modal button:hover {
+    background: #91cd85;
+}
+.modal button:active {
+    background: #60895a;
+}
+
+.modal input {
+    font-size: 200%;
+    margin-top: 10px;
+}
+
+.open {
+    transform: scale(1);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal ul {
+    list-style-type: square;
+    list-style-position: inside;
+    margin-left: 0;
+    padding-left: 1em;
+    text-indent: -1em;
+}
+
+.modal li {
+    margin-top: 7.5px;
 }

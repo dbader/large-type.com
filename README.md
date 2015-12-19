@@ -34,7 +34,9 @@ Here are some ideas:
 Awesome! Please create an issue ticket on GitHub (and if you have a really good day, maybe a pull request 😃) so we can fix it. Thanks!
 
 ### Is this secure?
-As per [RFC 2396](https://tools.ietf.org/html/rfc2396#section-4) browsers [don't send the URL fragment with the HTTP request](https://stackoverflow.com/questions/317760/how-to-get-url-hash-from-server-side). Thus sharing a link to large-type.com won't leak your secret word. Large-type.com is open-source, very small and hosted on GitHub Pages which means you can audit the source code to see that your data isn't sent or stored anywhere else.
+Per [RFC 2396](https://tools.ietf.org/html/rfc2396#section-4) browsers [don't send the URL fragment with the HTTP request](https://stackoverflow.com/questions/317760/how-to-get-url-hash-from-server-side). Thus sharing a link to large-type.com won't leak your secret word.
+
+Large-type.com is open-source, very small and hosted on GitHub Pages which means you can audit the source code to see that your data isn't sent or stored anywhere else.
 
 ## Meta
 Design inspired by [1Password's](https://agilebits.com/onepassword) large-type feature.
