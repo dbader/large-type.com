@@ -213,6 +213,9 @@ input::-webkit-input-placeholder {
     opacity: 0;
     pointer-events: none;
 
+    max-height: 100%;
+    overflow: scroll;
+
     transition: all 0.25s ease;
 }
 
