@@ -27,6 +27,7 @@
     function onHashChange() {
         clearChars();
         var text = decodeURIComponent(location.href.split('#')[1] || '');
+        var fontSize = Math.min(150 / text.length, 30);
         text.split('').forEach(function(chr) {
             var charbox = tmpl.content.cloneNode(true);
             var charElem = charbox.querySelector('.char');
@@ -38,6 +39,7 @@
             if (!chr.match(/[a-z]/i)) {
                 charElem.className = 'symbol';
             }
+            charElem.style.fontSize = fontSize + 'vw';
             word.appendChild(charbox);
         });
         input.value = text;
