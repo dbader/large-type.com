@@ -15,22 +15,16 @@ Here are some ideas:
 
 * Read that phone number from across the room?
     * [large-type.com/#(555)-123-456](http://large-type.com/#(555)-123-456)
-
 * Co-worker needs to know your IP address?
     * [large-type.com/#192.168.1.23](http://large-type.com/#192.168.1.23)
-
 * Show your friend the WiFi password?
     * [large-type.com/#3Rs%xw8y$Jtnu](http://large-type.com/#3Rs%25xw8y%24Jtnu)
-
 * Important announcement on social media?
     * [large-type.com/##YOLO](http://large-type.com/#%23YOLO)
-
 * Need a giant timer notification?
     * `$ sleep 10; open http://large-type.com/#Done!`
-
 * Waiting for your code to compile?
     * `$ make; open http://large-type.com/#Done!`
-
 * Profess your love from a runaway train?
     * [large-type.com/#I❤U](http://large-type.com/#I❤U)
 
