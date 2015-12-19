@@ -1,16 +1,16 @@
-# [large-type.com](http://large-type.com) – Display and share messages in VERY LARGE TEXT from your browser
+# [large-type.com](http://large-type.com) – Display and share text in VERY LARGE font
 
 ![](twitter-card.png)
 
-Large-type.com let's you display messages in very large text directly from your browser. Whoa!
+Large-type.com let's you **display & share text in a very large font** directly from your browser. Whoa!
 
-That's handy whenever you need to read something on your screen from further away—for example, a phone number. Nice!
+That's handy whenever you need to **read something on your screen from further away**—for example, phone numbers and passwords. Nice!
 
-Even better, when you share text with large-type.com only the person with the link sees your text. Rendering happens locally on your browser and your text is not transmitted to any servers.
+Even better, when you share text with large-type.com **only the person with the link sees your text**. Rendering happens locally on your browser and your text is not transmitted to any servers. How cool!
 
 ## FAQs
 
-### What do I use this for?
+### What can I use it for?
 Here are some ideas:
 
 * Read that phone number from across the room?
@@ -19,7 +19,7 @@ Here are some ideas:
 * Co-worker needs to know your IP address?
     * [large-type.com/#192.168.1.23](http://large-type.com/#192.168.1.23)
 
-* Share a password?
+* Show your friend the WiFi password?
     * [large-type.com/#3Rs%xw8y$Jtnu](http://large-type.com/#3Rs%25xw8y%24Jtnu)
 
 * Important announcement on social media?
@@ -34,13 +34,21 @@ Here are some ideas:
 * Profess your love from a runaway train?
     * [large-type.com/#I❤U](http://large-type.com/#I❤U)
 
-### I found a bug! Now what?
-Awesome! Please create an issue ticket on GitHub (and if you have a really good day, maybe a pull request 😃) so we can fix it. Thanks!
-
 ### Is this secure?
-Per [RFC 2396](https://tools.ietf.org/html/rfc2396#section-4) browsers [don't send the URL fragment with the HTTP request](https://stackoverflow.com/questions/317760/how-to-get-url-hash-from-server-side). Thus sharing a link to large-type.com won't leak your secret word.
+When you share text using large-type.com only the person with the link sees your text.
 
-Large-type.com is open-source, very small and hosted on GitHub Pages which means you can audit the source code to see that your data isn't sent or stored anywhere else.
+When you share a link to large-type.com with someone and they open it in their browser, the text in the URL fragment won't be transmitted as part of the HTTP request. As per [RFC 2396](https://tools.ietf.org/html/rfc2396#section-4) browsers [don't send the URL fragment with the HTTP request](https://stackoverflow.com/questions/317760/how-to-get-url-hash-from-server-side).
+
+> When a URI reference is used to perform a retrieval action on the identified resource, the optional fragment identifier, separated from the URI by a crosshatch ("#") character, consists of additional reference information **to be interpreted by the user agent after the retrieval action has been successfully completed**. As such, it is not part of a URI, but is often used in conjunction with a URI. (RFC 2396 section 4.1)
+
+Large-type.com uses Google Analytics and Twitter widgets. Both do not report URL fragments to their backend servers.
+
+All text formatting and rendering happens locally on your browser through CSS and JavaScript. Your text is not transmitted to any servers when the browser.
+
+Additionally, large-type.com is fully open-source, small and hosted on GitHub Pages which means you can audit the source code to see that your data isn't sent or stored anywhere else.
+
+### I found a bug! Now what?
+Awesome! Please [create an issue](https://github.com/dbader/large-type.com/issues) on GitHub (and if you have a really good day maybe a pull request, too 😃) so we can fix it. Thanks!
 
 ## Meta
 Design inspired by [1Password's](https://agilebits.com/onepassword) large-type feature.
