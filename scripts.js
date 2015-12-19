@@ -67,6 +67,9 @@
     }
 
     function enterInputMode(evt) {
+        if (evt.keyCode && evt.keyCode === 9) {
+            return;
+        }
         var defaultHash = '#' + encodeURIComponent(WELCOME_MSG);
         if (location.hash === defaultHash) {
             location.hash = '';
