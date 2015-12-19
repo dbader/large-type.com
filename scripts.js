@@ -10,11 +10,15 @@
 // https://stackoverflow.com/questions/317760/how-to-get-url-hash-from-server-side
 
 (function(){
+    "use strict";
+
     var WELCOME_MSG = '*hello*';
 
-    var word = document.querySelector('.word')
-    var input = document.querySelector('.inputbox')
+    var mainDiv = document.querySelector('.main');
+    var word = document.querySelector('.word');
+    var input = document.querySelector('.inputbox');
     var tmpl = document.querySelector('#charbox-template');
+    var shareLinkInput = document.querySelector('.js-share-link');
 
     if (!location.hash) {
         location.hash = encodeURIComponent(WELCOME_MSG);
@@ -59,6 +63,7 @@
             text = '';
         }
         input.value = text;
+        shareLinkInput.value = location.href;
         location.hash = encodeURIComponent(text);
     }
 
@@ -67,9 +72,6 @@
     }
 
     function enterInputMode(evt) {
-        if (evt.keyCode && evt.keyCode === 9) {
-            return;
-        }
         var defaultHash = '#' + encodeURIComponent(WELCOME_MSG);
         if (location.hash === defaultHash) {
             location.hash = '';
@@ -80,8 +82,45 @@
 
     input.addEventListener('input', onInput, false);
     word.addEventListener('click', enterInputMode, false);
-    window.addEventListener('keydown', enterInputMode, false);
+    window.addEventListener('keypress', enterInputMode, false);
     window.addEventListener('hashchange', onHashChange, false);
+
+    function modalKeyHandler(sel, evt) {
+        if (evt.keyCode === 27) {
+            hideModal(sel);
+        }
+    }
+
+    function showModal(sel) {
+        window.removeEventListener('keypress', enterInputMode);
+        var modalDiv = document.querySelector(sel);
+        modalDiv.classList.add('open');
+        mainDiv.classList.add('blurred');
+        var closeBtn = modalDiv.querySelector('.js-modal-close');
+
+        // Use legacy event handling to avoid having to unregister handlers
+        closeBtn.onclick = hideModal.bind(null, sel);
+        window.onkeydown = modalKeyHandler.bind(null, sel);
+    }
+
+    function hideModal(sel) {
+        var modalDiv = document.querySelector(sel);
+        modalDiv.classList.remove('open');
+        mainDiv.classList.remove('blurred');
+        window.onkeydown = null;
+        window.addEventListener('keypress', enterInputMode, false);
+    }
+
+    document.querySelector('.js-help-button').addEventListener('click', function(evt) {
+        evt.preventDefault();
+        showModal('.js-help-modal');
+    }, false);
+
+    document.querySelector('.js-share-button').addEventListener('click', function(evt) {
+        evt.preventDefault();
+        showModal('.js-share-modal');
+        shareLinkInput.select();
+    }, false);
 
     onHashChange();
 

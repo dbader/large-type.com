@@ -20,13 +20,56 @@
       </li>
     </template>
 
+    <div class="modal js-help-modal">
+      <h2>What is this?</h2>
+      <p>Large-type.com let's you <strong>display messages in very large text</strong> directly from your browser. Whoa!</p>
+      <p>That's handy whenever you need to <strong>read something on your screen from further away</strong>&mdash;for example, a phone number. Nice!</p>
+      <p>Even better, when you <strong>share text with large-type.com nobody else sees your text</strong>. Rendering happens locally on your browser and your text is not transmitted to any servers.</p>
+
+      <h2>Examples</h2>
+      <ul>
+        <li>
+          Read a phone number from across the room:<br><a target="_blank" href="/#(555)-123-456)">large-type.com/#(555)-123-456</a>
+        </li>
+        <li>
+          Share an IP address:<br><a target="_blank" href="/#192.168.1.23">large-type.com/#192.168.1.23</a>
+        </li>
+        <li>
+          Show your co-worker their new password:<br><a target="_blank" href="/#3Rs%25xw8y%24Jtnu">large-type.com/#3Rs%xw8y$Jtnu</a>
+        </li>
+        <li>
+          Profess your love from runaway train:<br><a target="_blank" href="/#I❤U">large-type.com/#I❤U</a>
+        </li>
+      </ul>
+
+      <p><a target="_blank" href="https://github.com/dbader/large-type.com#faqs">See more examples on GitHub</a></p>
+
+      <h2>Quick, tell everyone:</h2>
+      <p>
+      <a href="https://twitter.com/share" class="twitter-share-button"
+           data-url="http://large-type.com"
+           data-text="Display messages in VERY LARGE TEXT directly from your browser"
+           data-size="large"
+           data-via="dbader_org" data-related="dbader_org">Tweet</a>
+      </p>
+
+      <button class="js-modal-close">Close</button>
+    </div>
+
+    <div class="modal js-share-modal">
+      <h2>Copy the link below:</h2>
+      <input type="text" class="js-share-link" value=""/>
+      <p><a href="https://github.com/dbader/large-type.com#is-this-secure">How secure is this?</a></p>
+      <button class="js-modal-close">Close</button>
+    </div>
+
     <div class="main">
 
       <span class="inputarea">
         <input type="text" class="inputbox" tabindex="1" placeholder="Enter your text here" />
         <span class="button-row">
-          <button tabindex="2">Help</button>,
-          <button tabindex="3">Copy link</button>
+          <a href="" class="js-help-button">Help</a>
+          <a href="" class="js-share-button">Share text</a>
         </span>
       </span>
 
@@ -41,7 +84,7 @@
            data-show-count="false">Follow @dbader_org</a>
         <a href="https://twitter.com/share" class="twitter-share-button"
            data-url="http://large-type.com"
-           data-text="Quickly display a message in VERY LARGE TEXT from your browser"
+           data-text="Display messages in VERY LARGE TEXT directly from your browser"
            data-via="dbader_org" data-related="dbader_org">Tweet</a>
       </span>
 
