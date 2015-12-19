@@ -1,4 +1,4 @@
-# [large-type.com](http://large-type.com) – Display and share text in VERY LARGE font
+# [large-type.com](http://large-type.com) – Display and share text in a large font, directly from your browser
 
 ![](twitter-card.png)
 
