@@ -43,6 +43,7 @@
             word.appendChild(charbox);
         });
         input.value = text;
+        location.hash = encodeURIComponent(text);
     }
 
     function onInput(evt) {
