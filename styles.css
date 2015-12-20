@@ -99,7 +99,7 @@ input::-webkit-input-placeholder {
     width: 30%;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
     .inputarea {
         width: 80%;
         margin-left: 10%;
@@ -187,7 +187,7 @@ input::-webkit-input-placeholder {
     width: 100%;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
     .about {
         font-size: 60%;
     }
@@ -221,7 +221,7 @@ input::-webkit-input-placeholder {
     z-index: 99;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
     .modal {
         width: 80%;
     }
