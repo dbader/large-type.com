@@ -20,6 +20,8 @@
     var tmpl = document.querySelector('#charbox-template');
     var shareLinkInput = document.querySelector('.js-share-link');
 
+    var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
     if (!location.hash) {
         location.hash = encodeURIComponent(WELCOME_MSG);
     }
@@ -119,7 +121,11 @@
     document.querySelector('.js-share-button').addEventListener('click', function(evt) {
         evt.preventDefault();
         showModal('.js-share-modal');
-        shareLinkInput.select();
+
+        // Don't pop up the keyboard on mobile
+        if (!isMobile) {
+            shareLinkInput.select();
+        }
     }, false);
 
     onHashChange();
