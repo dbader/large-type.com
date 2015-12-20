@@ -204,7 +204,8 @@ input::-webkit-input-placeholder {
     width: 50%;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    visibility: hidden;
+    transform: translate(-50%, -50%) scale(0.7);
 
     padding: 20px;
     border-radius: 3px;
@@ -220,7 +221,8 @@ input::-webkit-input-placeholder {
 }
 
 .modal.open {
-    transform: translate(-50%, -50%);
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
     opacity: 1;
     pointer-events: auto;
 }
