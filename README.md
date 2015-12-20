@@ -19,7 +19,7 @@ Here are some ideas:
 * Co-worker needs to know your IP address?
     * [large-type.com/#192.168.1.23](http://large-type.com/#192.168.1.23)
 * Show your friend the WiFi password?
-    * [large-type.com/#3Rs%xw8y$Jtnu](http://large-type.com/#3Rs%25xw8y%24Jtnu)
+    * [large-type.com/#P4$$w0rd](http://large-type.com/#P4%24%24w0rd)
 * Important announcement on social media?
     * [large-type.com/##YOLO](http://large-type.com/#%23YOLO)
 * Need a giant timer notification?
