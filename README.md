@@ -1,7 +1,7 @@
 # [large-type.com](http://large-type.com)
 > Display and share text in a large font, directly from your browser
 
-Large-type.com is a utility website that let's you **display & share text in a very large font** directly from your browser.
+Large-type.com is a utility website that lets you **display & share text in a very large font** directly from your browser.
 
 That's handy whenever you need to **read something on your screen from further away**—for example, phone numbers and passwords.
 
