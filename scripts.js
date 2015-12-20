@@ -1,47 +1,35 @@
-// FIXME: <template> won't work on IE
-
-/*
-    TODO:
-    - double click on the word should select all characters
-*/
-
-// Security:
-// URL fragment won't be sent as part of the request. Thus a-okay to share
-// https://stackoverflow.com/questions/317760/how-to-get-url-hash-from-server-side
-
 (function(){
     "use strict";
 
     var WELCOME_MSG = '*hello*';
 
     var mainDiv = document.querySelector('.main');
-    var word = document.querySelector('.word');
-    var input = document.querySelector('.inputbox');
-    var tmpl = document.querySelector('#charbox-template');
-    var shareLinkInput = document.querySelector('.js-share-link');
+    var textDiv = document.querySelector('.text');
+    var inputField = document.querySelector('.inputbox');
+    var shareLinkField = document.querySelector('.js-share-link');
+    var charboxTemplate = document.querySelector('#charbox-template');
 
     var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
-    if (!location.hash) {
-        location.hash = encodeURIComponent(WELCOME_MSG);
+    function updateFragment(text) {
+        location.hash = encodeURIComponent(text);
     }
 
     function clearChars() {
-        while (word.firstChild) {
-            word.removeChild(word.firstChild);
+        while (textDiv.firstChild) {
+            textDiv.removeChild(textDiv.firstChild);
         }
     }
 
-    function onHashChange() {
-        clearChars();
-
+    function renderText() {
         // Return a space as typing indicator if text is empty.
         var text = decodeURIComponent(location.hash.split('#')[1] || ' ');
-
         var fontSize = Math.min(150 / text.length, 30);
 
+        clearChars();
+
         text.split('').forEach(function(chr) {
-            var charbox = tmpl.content.cloneNode(true);
+            var charbox = charboxTemplate.content.cloneNode(true);
             var charElem = charbox.querySelector('.char');
             charElem.style.fontSize = fontSize + 'vw';
 
@@ -57,37 +45,34 @@
                 charElem.className = 'symbol';
             }
 
-            word.appendChild(charbox);
+            textDiv.appendChild(charbox);
         });
 
         // Ignore the placeholder space (typing indicator).
         if (text === ' ') {
             text = '';
         }
-        input.value = text;
-        shareLinkInput.value = location.href;
-        location.hash = encodeURIComponent(text);
+
+        inputField.value = text;
+        shareLinkField.value = location.href;
+        updateFragment(text);
     }
 
     function onInput(evt) {
-        location.hash = encodeURIComponent(evt.target.value);
+        updateFragment(evt.target.value);
     }
 
     function enterInputMode(evt) {
         var defaultHash = '#' + encodeURIComponent(WELCOME_MSG);
         if (location.hash === defaultHash) {
-            location.hash = '';
-            onHashChange();
+            updateFragment('');
+            renderText();
         }
-        input.focus();
+        inputField.focus();
     }
 
-    input.addEventListener('input', onInput, false);
-    word.addEventListener('click', enterInputMode, false);
-    window.addEventListener('keypress', enterInputMode, false);
-    window.addEventListener('hashchange', onHashChange, false);
-
     function modalKeyHandler(sel, evt) {
+        // ESC to close the modal
         if (evt.keyCode === 27) {
             hideModal(sel);
         }
@@ -113,6 +98,17 @@
         window.addEventListener('keypress', enterInputMode, false);
     }
 
+    function initAnalytics() {
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('set', 'anonymizeIp', true);
+        ga('create', 'UA-37242602-2', 'auto');
+        ga('send', 'pageview');
+    }
+
     document.querySelector('.js-help-button').addEventListener('click', function(evt) {
         evt.preventDefault();
         showModal('.js-help-modal');
@@ -124,18 +120,19 @@
 
         // Don't pop up the keyboard on mobile
         if (!isMobile) {
-            shareLinkInput.select();
+            shareLinkField.select();
         }
     }, false);
 
-    onHashChange();
+    inputField.addEventListener('input', onInput, false);
+    textDiv.addEventListener('click', enterInputMode, false);
+    window.addEventListener('keypress', enterInputMode, false);
+    window.addEventListener('hashchange', renderText, false);
 
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    if (!location.hash) {
+        updateFragment(WELCOME_MSG);
+    }
 
-    ga('set', 'anonymizeIp', true);
-    ga('create', 'UA-37242602-2', 'auto');
-    ga('send', 'pageview');
+    renderText();
+    initAnalytics();
 })();

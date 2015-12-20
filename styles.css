@@ -1,13 +1,14 @@
 /*** Common ***********************************************************/
+
 * {
     margin: 0;
     padding: 0;
 }
 
 html, body {
+    font-family: sans-serif;
     height: 100%;
     overflow: hidden;
-    font-family: sans-serif;
 }
 
 h1, h2 {
@@ -15,8 +16,8 @@ h1, h2 {
 }
 
 p {
-    margin: 10px 0 10px 0;
     line-height: 1.32;
+    margin: 10px 0 10px 0;
 }
 
 a {
@@ -38,31 +39,21 @@ a:active {
 }
 
 input {
-    font-size: 12px;
-    font-family: sans-serif;
-
-    text-align: center;
-    min-height: 26px;
-    padding: 2px;
-    width: 100%;
-
-    border: 1px solid #ccc;
     border-radius: 3px;
-    outline: none;
+    border: 1px solid #ccc;
     box-shadow: inset 0 1px 2px rgba(0,0,0,0.075);
-
-    /*opacity: 0;
-    animation-name: fade-in;
-    animation-timing-function: ease;
-    animation-duration: 1.5s;
-    animation-delay: 2s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;*/
+    font-family: sans-serif;
+    font-size: 12px;
+    min-height: 26px;
+    outline: none;
+    padding: 2px;
+    text-align: center;
+    width: 100%;
 }
 
 input:focus {
-    outline: none;
     box-shadow: inset 0 1px 2px rgba(0,0,0,0.075), 0 0 5px rgba(81,167,232,0.5);
+    outline: none;
 }
 
 input::-webkit-input-placeholder {
@@ -72,20 +63,24 @@ input::-webkit-input-placeholder {
 /*** Anims ************************************************************/
 
 @keyframes fade-in {
-    from {opacity: 0;}
-    to {opacity: 1.0;}
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1.0;
+    }
 }
 
 /*** Main *************************************************************/
 
 .main {
+    align-items: center;
     color: #222;
-    width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
+    height: 100%;
     justify-content: center;
-    align-items: center;
+    width: 100%;
 }
 
 .blurred {
@@ -94,15 +89,14 @@ input::-webkit-input-placeholder {
 }
 
 .inputarea {
-    position: absolute;
-    top: 0;
+    font-size: 12px;
     left: 0;
-    width: 30%;
     margin-left: 35%;
     margin-right: 35%;
     margin-top: 10px;
-
-    font-size: 12px;
+    position: absolute;
+    top: 0;
+    width: 30%;
 }
 
 .inputarea .button-row {
@@ -111,9 +105,9 @@ input::-webkit-input-placeholder {
 }
 
 .inputarea a {
-    padding: 2px;
-    margin: 5px 5px;
     color: #ccc;
+    margin: 5px 5px;
+    padding: 2px;
 }
 
 .inputarea a:hover {
@@ -121,69 +115,68 @@ input::-webkit-input-placeholder {
     text-decoration: underline;
 }
 
-.word {
-    overflow: hidden;
-    border: 1px solid #eee;
+.text {
     border-radius: 10px;
+    border: 1px solid #eee;
     box-shadow: 10px 10px 50px 5px #aaa;
     counter-reset: num-chars;
+    overflow: hidden;
 }
 
-.word li {
-    font-size: 10vw;
-    font-family: monospace;
-    float: left;
+.text li {
+    counter-increment: num-chars;
     display: flex;
     flex-direction: column;
-    counter-increment: num-chars;
+    float: left;
+    font-family: monospace;
+    font-size: 10vw;
 }
 
-.word li .number {
+.text li .number {
     color: #456cad;
 }
 
-.word li .symbol {
+.text li .symbol {
     color: #b94669;
 }
 
-.word li:nth-child(odd) {
+.text li:nth-child(odd) {
     background: white;
 }
 
-.word li:nth-child(even) {
+.text li:nth-child(even) {
     background: #f7f7f7;
 }
 
-.word li::after {
-    display: block;
-    color: #aaa;
-    font-size: 1.5vw;
-    text-align: center;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
+.text li::after {
     -khtml-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    color: #aaa;
     content: counter(num-chars);
+    display: block;
+    font-size: 1.5vw;
+    text-align: center;
+    user-select: none;
 }
 
 .about {
-    font-family: sans-serif;
-    display: block;
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    bottom: 10px;
-    left: 0;
-
-    opacity: 0;
+    animation-delay: 2s;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
     animation-name: fade-in;
     animation-timing-function: ease;
-    animation-duration: 1.5s;
-    animation-delay: 2s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+    bottom: 10px;
+    display: block;
+    font-family: sans-serif;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    text-align: center;
+    width: 100%;
 }
 
 .twitter-follow-button {
@@ -194,52 +187,47 @@ input::-webkit-input-placeholder {
     vertical-align: text-bottom;
 }
 
-/*** Modal ************************************************************/
+/*** Modals ***********************************************************/
 
 .modal {
     background: white;
-
-    z-index: 99;
-    position: absolute;
-    width: 50%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.7);
-
-    padding: 20px;
     border-radius: 3px;
     box-shadow: 0px 0px 20px rgba( 0, 0, 0, 0.6);
-
-    opacity: 0;
-    pointer-events: none;
-
+    left: 50%;
     max-height: 90%;
+    opacity: 0;
     overflow: scroll;
-
+    padding: 20px;
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.7);
     transition: all 0.25s ease;
+    width: 50%;
+    z-index: 99;
 }
 
 .modal.open {
-    transform: translate(-50%, -50%) scale(1);
     opacity: 1;
     pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
 }
 
 .modal button {
-    float: right;
-    border: 0px;
-    padding: 8px 10px;
-    margin: 10px -6px 0 0;
-    border-radius: 1px;
-    cursor: pointer;
-    color: #fff;
-    background: #b94669;
-    font-size: 15px;
-    outline: none;
-    -webkit-transition: 0.15s background ease;
     -moz-transition: 0.15s background ease;
     -ms-transition: 0.15s background ease;
     -o-transition: 0.15s background ease;
+    -webkit-transition: 0.15s background ease;
+    background: #b94669;
+    border-radius: 1px;
+    border: 0px;
+    color: #fff;
+    cursor: pointer;
+    float: right;
+    font-size: 15px;
+    margin: 10px -6px 0 0;
+    outline: none;
+    padding: 8px 10px;
     transition: 0.15s background ease;
 }
 
@@ -256,8 +244,8 @@ input::-webkit-input-placeholder {
 }
 
 .modal ul {
-    list-style-type: square;
     list-style-position: inside;
+    list-style-type: square;
     margin-left: 0;
     padding-left: 1em;
     text-indent: -1em;
