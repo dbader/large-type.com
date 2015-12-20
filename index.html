@@ -14,12 +14,37 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <template id="charbox-template">
-      <li class="charbox">
-        <span class="char"></span>
-      </li>
-    </template>
+    <!-- Content -->
+    <div class="main">
+      <span class="inputarea">
+        <input type="text" class="inputbox" tabindex="1" placeholder="Enter your text here" />
+        <span class="button-row">
+          <a href="" class="js-help-button">What is this?</a>
+          <a href="" class="js-share-button">Share this text.</a>
+        </span>
+      </span>
 
+      <ul class="word">
+        <template id="charbox-template">
+          <li class="charbox">
+            <span class="char"></span>
+          </li>
+        </template>
+      </ul>
+
+      <span class="about">
+        Made with love by <a href="https://dbader.org">Daniel Bader</a> &mdash;
+        Fork or suggest edits on <a href="https://github.com/dbader/large-type.com">GitHub</a> &mdash;
+        <a href="https://twitter.com/dbader_org" class="twitter-follow-button"
+           data-show-count="false">Follow @dbader_org</a>
+        <a href="https://twitter.com/share" class="twitter-share-button"
+           data-url="http://large-type.com"
+           data-text="Nice utility website to display &amp; share text in a large font directly from your browser"
+           data-via="dbader_org" data-related="dbader_org">Tweet</a>
+      </span>
+    </div>
+
+    <!-- Modals -->
     <div class="modal js-help-modal">
       <h2>What is large-type.com?</h2>
       <p>Large-type.com let's you <strong>display &amp; share text in a very large font</strong> directly from your browser. Whoa!</p>
@@ -41,7 +66,6 @@
           Profess your love from runaway train:<br><a target="_blank" href="/#I❤U">large-type.com/#I❤U</a>
         </li>
       </ul>
-
       <p><a target="_blank" href="https://github.com/dbader/large-type.com#faqs">See more examples on GitHub</a></p>
 
       <h2>Quick, tell your friends!</h2>
@@ -62,34 +86,6 @@
       <p><a href="https://github.com/dbader/large-type.com#is-this-secure">How secure is this?</a></p>
       <button class="js-modal-close">Close</button>
     </div>
-
-    <div class="main">
-
-      <span class="inputarea">
-        <input type="text" class="inputbox" tabindex="1" placeholder="Enter your text here" />
-        <span class="button-row">
-          <a href="" class="js-help-button">What is this?</a>
-          <a href="" class="js-share-button">Share this text.</a>
-        </span>
-      </span>
-
-      <ul class="word">
-        <!-- Populated dynamically -->
-      </ul>
-
-      <span class="about">
-        Made with love by <a href="https://dbader.org">Daniel Bader</a> &mdash;
-        Fork or suggest edits on <a href="https://github.com/dbader/large-type.com">GitHub</a> &mdash;
-        <a href="https://twitter.com/dbader_org" class="twitter-follow-button"
-           data-show-count="false">Follow @dbader_org</a>
-        <a href="https://twitter.com/share" class="twitter-share-button"
-           data-url="http://large-type.com"
-           data-text="Nice utility website to display &amp; share text in a large font directly from your browser"
-           data-via="dbader_org" data-related="dbader_org">Tweet</a>
-      </span>
-
-    </div>
-
 
     <script src="scripts.js"></script>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
