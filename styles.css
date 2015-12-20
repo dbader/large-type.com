@@ -115,7 +115,7 @@ input::-webkit-input-placeholder {
     text-decoration: underline;
 }
 
-.word {
+.text {
     border-radius: 10px;
     border: 1px solid #eee;
     box-shadow: 10px 10px 50px 5px #aaa;
@@ -123,7 +123,7 @@ input::-webkit-input-placeholder {
     overflow: hidden;
 }
 
-.word li {
+.text li {
     counter-increment: num-chars;
     display: flex;
     flex-direction: column;
@@ -132,23 +132,23 @@ input::-webkit-input-placeholder {
     font-size: 10vw;
 }
 
-.word li .number {
+.text li .number {
     color: #456cad;
 }
 
-.word li .symbol {
+.text li .symbol {
     color: #b94669;
 }
 
-.word li:nth-child(odd) {
+.text li:nth-child(odd) {
     background: white;
 }
 
-.word li:nth-child(even) {
+.text li:nth-child(even) {
     background: #f7f7f7;
 }
 
-.word li::after {
+.text li::after {
     -khtml-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
