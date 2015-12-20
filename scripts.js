@@ -53,7 +53,10 @@
             text = '';
         }
 
-        inputField.value = text;
+        // Don't jump the cursor to the end
+        if (inputField.value !== text) {
+            inputField.value = text;
+        }
         shareLinkField.value = location.href;
         updateFragment(text);
     }
