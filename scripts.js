@@ -88,6 +88,9 @@
         // Use legacy event handling to avoid having to unregister handlers
         closeBtn.onclick = hideModal.bind(null, sel);
         window.onkeydown = modalKeyHandler.bind(null, sel);
+
+        // Make sure we're scrolled to the top on mobile
+        modalDiv.scrollTop = 0;
     }
 
     function hideModal(sel) {
