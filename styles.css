@@ -99,6 +99,14 @@ input::-webkit-input-placeholder {
     width: 30%;
 }
 
+@media only screen and (max-width: 600px) {
+    .inputarea {
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+}
+
 .inputarea .button-row {
     display: flex;
     justify-content: center;
@@ -179,6 +187,12 @@ input::-webkit-input-placeholder {
     width: 100%;
 }
 
+@media only screen and (max-width: 600px) {
+    .about {
+        font-size: 60%;
+    }
+}
+
 .twitter-follow-button {
     vertical-align: text-bottom;
 }
@@ -205,6 +219,12 @@ input::-webkit-input-placeholder {
     transition: all 0.25s ease;
     width: 50%;
     z-index: 99;
+}
+
+@media only screen and (max-width: 600px) {
+    .modal {
+        width: 80%;
+    }
 }
 
 .modal.open {
