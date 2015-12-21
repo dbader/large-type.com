@@ -1,4 +1,4 @@
-(function(){
+window.addEventListener('DOMContentLoaded', function() {
     "use strict";
 
     var WELCOME_MSG = '*hello*';
@@ -116,14 +116,21 @@
         ga('create', 'UA-37242602-2', 'auto');
         ga('send', 'pageview');
 
-        if (twttr) {
+        window.twttr = window.twttr || {
+            _e: [],
+            ready: function(f) {
+                this._e.push(f);
+            }
+        };
+
+        twttr.ready(function (twttr) {
             twttr.events.bind('follow', function(event) {
                 ga('send', 'event', 'twitter', 'follow');
             });
             twttr.events.bind('tweet', function(event) {
                 ga('send', 'event', 'twitter', 'tweet');
             });
-        }
+        });
     }
 
     document.querySelector('.js-help-button').addEventListener('click', function(evt) {
@@ -146,12 +153,10 @@
     window.addEventListener('keypress', enterInputMode, false);
     window.addEventListener('hashchange', renderText, false);
 
-    window.addEventListener('load', function() {
-        if (!location.hash) {
-            updateFragment(WELCOME_MSG);
-        }
+    if (!location.hash) {
+        updateFragment(WELCOME_MSG);
+    }
 
-        renderText();
-        initAnalytics();
-    });
-})();
+    renderText();
+    initAnalytics();
+});
