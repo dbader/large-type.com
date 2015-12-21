@@ -30,12 +30,12 @@ a:visited {
 }
 
 a:hover {
-    color: #D36083;
+    color: #d36083;
     text-decoration: underline;
 }
 
 a:active {
-    color: #A02D50;
+    color: #a02d50;
 }
 
 input {
@@ -207,7 +207,7 @@ input::-webkit-input-placeholder {
     -webkit-overflow-scrolling: touch;
     background: white;
     border-radius: 3px;
-    box-shadow: 0px 0px 20px rgba( 0, 0, 0, 0.6);
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.6);
     left: 50%;
     max-height: 90%;
     opacity: 0;
@@ -253,10 +253,10 @@ input::-webkit-input-placeholder {
 }
 
 .modal button:hover {
-    background: #D36083;
+    background: #d36083;
 }
 .modal button:active {
-    background: #A02D50;
+    background: #a02d50;
 }
 
 .modal input {
