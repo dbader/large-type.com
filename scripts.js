@@ -12,9 +12,9 @@ window.addEventListener('DOMContentLoaded', function() {
     var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
     function updateFragment(text) {
-        // Don't spam the browser history.
-        var baseUrl = window.location.href.split('#')[0];
-        window.location.replace(baseUrl + '#' + encodeURIComponent(text));
+        // Don't spam the browser history & strip query strings.
+        window.location.replace(location.origin + '/#' + encodeURIComponent(text));
+        shareLinkField.value = location.origin + '/' + location.hash;
     }
 
     function clearChars() {
@@ -59,7 +59,6 @@ window.addEventListener('DOMContentLoaded', function() {
         if (inputField.value !== text) {
             inputField.value = text;
         }
-        shareLinkField.value = location.href;
         updateFragment(text);
     }
 
