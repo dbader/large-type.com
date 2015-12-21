@@ -94,6 +94,8 @@
 
         // Make sure we're scrolled to the top on mobile
         modalDiv.scrollTop = 0;
+
+        ga('send', 'event', 'modal-show', sel);
     }
 
     function hideModal(sel) {
@@ -113,6 +115,15 @@
         ga('set', 'anonymizeIp', true);
         ga('create', 'UA-37242602-2', 'auto');
         ga('send', 'pageview');
+
+        if (twttr) {
+            twttr.events.bind('follow', function(event) {
+                ga('send', 'event', 'twitter', 'follow');
+            });
+            twttr.events.bind('tweet', function(event) {
+                ga('send', 'event', 'twitter', 'tweet');
+            });
+        }
     }
 
     document.querySelector('.js-help-button').addEventListener('click', function(evt) {
@@ -135,10 +146,12 @@
     window.addEventListener('keypress', enterInputMode, false);
     window.addEventListener('hashchange', renderText, false);
 
-    if (!location.hash) {
-        updateFragment(WELCOME_MSG);
-    }
+    window.addEventListener('load', function() {
+        if (!location.hash) {
+            updateFragment(WELCOME_MSG);
+        }
 
-    renderText();
-    initAnalytics();
+        renderText();
+        initAnalytics();
+    });
 })();
