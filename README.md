@@ -32,10 +32,11 @@ Here are some ideas:
 * Profess your love from a runaway train?
     * [large-type.com/#I❤U](http://large-type.com/#I❤U)
 
-### Is this secure?
-When you share text using large-type.com only the person with the link sees your text.
+### How secure is it?
 
-When you share a link to large-type.com with someone and they open it in their browser, the text in the URL fragment won't be transmitted as part of the HTTP request. As per [RFC 2396](https://tools.ietf.org/html/rfc2396#section-4) browsers [don't send the URL fragment with the HTTP request](https://stackoverflow.com/questions/317760/how-to-get-url-hash-from-server-side).
+**The short answer**: Sharing text with someone by sending them a link to large-type.com offers the same level of security as sending them the text directly. Always use secure communication methods when sharing password URLs.
+
+**The long answer**: When you share a link to large-type.com with someone and they open it in their browser, the text in the URL fragment won't be transmitted as part of the HTTP request. As per [RFC 2396](https://tools.ietf.org/html/rfc2396#section-4) browsers [don't send the URL fragment with the HTTP request](https://stackoverflow.com/questions/317760/how-to-get-url-hash-from-server-side).
 
 > When a URI reference is used to perform a retrieval action on the identified resource, the optional fragment identifier, separated from the URI by a crosshatch ("#") character, consists of additional reference information **to be interpreted by the user agent after the retrieval action has been successfully completed**. As such, it is not part of a URI, but is often used in conjunction with a URI. (RFC 2396 section 4.1)
 
@@ -45,8 +46,7 @@ All text formatting and rendering happen locally on your browser through CSS and
 
 Additionally, large-type.com is fully open-source, small and hosted on GitHub Pages which means you can audit the source code to see that your data isn't sent or stored anywhere else.
 
-Please keep in mind that, while large-type does not send the text to a backend server, large-type.com is not responsible for how you choose to share the URL. **Please use secure communication methods when sharing password URLs.**
-
+Please keep in mind that, while large-type does not send the text to a backend server, large-type.com is not responsible for how you choose to share the URL. Please use secure communication methods when sharing password URLs.
 
 ### I found a bug! Now what?
 Awesome! Please [create an issue](https://github.com/dbader/large-type.com/issues) on GitHub (and if you have a really good day maybe a pull request, too 😃) so we can fix it. Thanks!
