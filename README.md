@@ -28,9 +28,7 @@ Here are some ideas:
 * Waiting for your code to compile?
     * `$ make; open http://large-type.com/#Done!`
 * Embed it in your own apps?
-    ```js
-    'http://large-type.com/#' + encodeURIComponent('Your Text Here')
-    ```
+    * `'http://large-type.com/#' + encodeURIComponent('Your Text Here')`
 * Profess your love from a runaway train?
     * [large-type.com/#I❤U](http://large-type.com/#I❤U)
 
