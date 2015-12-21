@@ -45,6 +45,9 @@ All text formatting and rendering happen locally on your browser through CSS and
 
 Additionally, large-type.com is fully open-source, small and hosted on GitHub Pages which means you can audit the source code to see that your data isn't sent or stored anywhere else.
 
+Please keep in mind that, while large-type does not send the text to a backend server, large-type.com is not responsible for how you choose to share the URL. **Please use secure communication methods when sharing password URLs.**
+
+
 ### I found a bug! Now what?
 Awesome! Please [create an issue](https://github.com/dbader/large-type.com/issues) on GitHub (and if you have a really good day maybe a pull request, too 😃) so we can fix it. Thanks!
 
