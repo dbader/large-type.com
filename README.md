@@ -1,5 +1,4 @@
-# [large-type.com](http://large-type.com)
-> Display and share text in a large font, directly from your browser
+# [large-type.com](http://large-type.com) – Display and share text in a large font, directly from your browser
 
 Large-type.com is a utility website that lets you **display & share text in a very large font** directly from your browser.
 
@@ -8,6 +7,8 @@ That's handy whenever you need to **read something on your screen from further a
 Even better, when you share text with large-type.com **only the person with the link sees your text**. Rendering happens locally on your browser and your text is not transmitted to any servers.
 
 ![](twitter-card.png)
+
+Here's a quick [demo video](https://www.youtube.com/watch?v=EHaH3dO1YH4).
 
 ## FAQs
 
@@ -26,6 +27,10 @@ Here are some ideas:
     * `$ sleep 10; open http://large-type.com/#Done!`
 * Waiting for your code to compile?
     * `$ make; open http://large-type.com/#Done!`
+* Embed it in your own apps?
+    ```js
+    'http://large-type.com/#' + encodeURIComponent('Your Text Here')
+    ```
 * Profess your love from a runaway train?
     * [large-type.com/#I❤U](http://large-type.com/#I❤U)
 
@@ -38,7 +43,7 @@ When you share a link to large-type.com with someone and they open it in their b
 
 Large-type.com uses Google Analytics and Twitter widgets. Both do not report URL fragments to their backend servers.
 
-All text formatting and rendering happens locally on your browser through CSS and JavaScript. Your text is not transmitted to any servers when the browser.
+All text formatting and rendering happen locally on your browser through CSS and JavaScript. Your text is not transmitted to any servers when the browser.
 
 Additionally, large-type.com is fully open-source, small and hosted on GitHub Pages which means you can audit the source code to see that your data isn't sent or stored anywhere else.
 
