@@ -12,7 +12,9 @@ window.addEventListener('DOMContentLoaded', function() {
     var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
     function updateFragment(text) {
-        location.hash = encodeURIComponent(text);
+        // Don't spam the browser history.
+        var baseUrl = window.location.href.split('#')[0];
+        window.location.replace(baseUrl + '#' + encodeURIComponent(text));
     }
 
     function clearChars() {
