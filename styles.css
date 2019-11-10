@@ -165,7 +165,7 @@ input::-webkit-input-placeholder {
     color: #aaa;
     content: counter(num-chars);
     display: block;
-    font-size: 1.5vw;
+    font-size: 0.15ch;
     text-align: center;
     user-select: none;
 }
