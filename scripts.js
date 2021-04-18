@@ -29,8 +29,9 @@ window.addEventListener('DOMContentLoaded', function() {
         var fontSize = Math.min(150 / text.length, 30);
 
         clearChars();
+        
 
-        text.split('').forEach(function(chr) {
+        [...text].forEach(function(chr) {
             var charbox = charboxTemplate.content.cloneNode(true);
             var charElem = charbox.querySelector('.char');
             charElem.style.fontSize = fontSize + 'vw';
