@@ -8,6 +8,7 @@ window.addEventListener('DOMContentLoaded', function() {
     var inputField = document.querySelector('.inputbox');
     var shareLinkField = document.querySelector('.js-share-link');
     var charboxTemplate = document.querySelector('#charbox-template');
+    var defaultTitle = document.querySelector("title").innerText;
 
     var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
@@ -15,6 +16,14 @@ window.addEventListener('DOMContentLoaded', function() {
         // Don't spam the browser history & strip query strings.
         window.location.replace(location.origin + '/#' + encodeURIComponent(text));
         shareLinkField.value = location.origin + '/' + location.hash;
+    }
+
+    function updateTitle(text) {
+        if (text === WELCOME_MSG) {
+            document.title = defaultTitle;
+        } else {
+            document.title = text;
+        }
     }
 
     function clearChars() {
@@ -60,6 +69,7 @@ window.addEventListener('DOMContentLoaded', function() {
             inputField.value = text;
         }
         updateFragment(text);
+        updateTitle(text);
     }
 
     function onInput(evt) {

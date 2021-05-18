@@ -51,6 +51,16 @@ Please keep in mind that, while large-type does not send the text to a backend s
 ### I found a bug! Now what?
 Awesome! Please [create an issue](https://github.com/dbader/large-type.com/issues) on GitHub (and if you have a really good day maybe a pull request, too 😃) so we can fix it. Thanks!
 
+### Local Development & Preview
+
+Spin up a local development web server:
+
+```
+python -m http.server 8000
+```
+
+Then open http://localhost:8000/ to preview.
+
 ## Meta
 Design inspired by [1Password's](https://agilebits.com/onepassword) large-type feature.
 
