@@ -39,7 +39,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
         clearChars();
 
-        text.split('').forEach(function(chr) {
+        text.split(/.*?/u).forEach(function(chr) {
             var charbox = charboxTemplate.content.cloneNode(true);
             var charElem = charbox.querySelector('.char');
             charElem.style.fontSize = fontSize + 'vw';
