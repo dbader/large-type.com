@@ -211,7 +211,7 @@ input::-webkit-input-placeholder {
     left: 50%;
     max-height: 90%;
     opacity: 0;
-    overflow: scroll;
+    overflow: auto;
     padding: 20px;
     pointer-events: none;
     position: absolute;
