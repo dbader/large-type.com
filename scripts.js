@@ -19,7 +19,7 @@ window.addEventListener('DOMContentLoaded', function() {
     }
 
     function updateTitle(text) {
-        if (text === WELCOME_MSG) {
+        if (!text || text === WELCOME_MSG) {
             document.title = defaultTitle;
         } else {
             document.title = text;
