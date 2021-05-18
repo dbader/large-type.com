@@ -83,7 +83,6 @@ window.addEventListener('DOMContentLoaded', function() {
             renderText();
         }
         inputField.focus();
-        inputField.selectionStart = inputField.selectionEnd = inputField.value.length;
     }
 
     function modalKeyHandler(sel, evt) {
