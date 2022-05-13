@@ -52,7 +52,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
             if (chr.match(/[0-9]/i)) {
                 charElem.className = 'number';
-            } else if (!chr.match(/[a-z]/i)) {
+            } else if (!chr.match(/\p{L}/iu)) {
                 charElem.className = 'symbol';
             }
 
