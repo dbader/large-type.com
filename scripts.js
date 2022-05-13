@@ -12,6 +12,10 @@ window.addEventListener('DOMContentLoaded', function() {
 
     var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
+    function focusInput() {
+        inputField.focus()
+    }
+    
     function updateFragment(text) {
         // Don't spam the browser history & strip query strings.
         window.location.replace(location.origin + '/#' + encodeURIComponent(text));
@@ -168,6 +172,8 @@ window.addEventListener('DOMContentLoaded', function() {
         updateFragment(WELCOME_MSG);
     }
 
+    
+    focusInput();
     renderText();
     initAnalytics();
 });
