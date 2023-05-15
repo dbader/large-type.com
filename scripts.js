@@ -118,30 +118,33 @@ window.addEventListener('DOMContentLoaded', function() {
     }
 
     function initAnalytics() {
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        // this check is needed to make sure the app still works on mobile without internet connection
+        if (window.navigator.onLine) {
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-        ga('set', 'anonymizeIp', true);
-        ga('create', 'UA-37242602-2', 'auto');
-        ga('send', 'pageview');
+            ga('set', 'anonymizeIp', true);
+            ga('create', 'UA-37242602-2', 'auto');
+            ga('send', 'pageview');
 
-        window.twttr = window.twttr || {
-            _e: [],
-            ready: function(f) {
-                this._e.push(f);
-            }
-        };
+            window.twttr = window.twttr || {
+                _e: [],
+                ready: function(f) {
+                    this._e.push(f);
+                }
+            };
 
-        twttr.ready(function (twttr) {
-            twttr.events.bind('follow', function(event) {
-                ga('send', 'event', 'twitter', 'follow');
+            twttr.ready(function (twttr) {
+                twttr.events.bind('follow', function(event) {
+                    ga('send', 'event', 'twitter', 'follow');
+                });
+                twttr.events.bind('tweet', function(event) {
+                    ga('send', 'event', 'twitter', 'tweet');
+                });
             });
-            twttr.events.bind('tweet', function(event) {
-                ga('send', 'event', 'twitter', 'tweet');
-            });
-        });
+        }
     }
 
     document.querySelector('.js-help-button').addEventListener('click', function(evt) {
