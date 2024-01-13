@@ -1,4 +1,35 @@
+/*** Color Schemes ****************************************************/
+
+:root {
+    --link-color: #b94669;
+    --hover-color: #d36083;
+    --active-color: #a02d50;
+
+    --bg-odd-letters: white;
+    --bg-even-letters: #f7f7f7;
+    --modal-bg-color: white;
+    --bg-color: unset;
+
+    --main-color: #222;
+    --text-shadow-color: #aaa;
+    --input-color: #ccc;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-odd-letters: black;
+        --bg-even-letters: #272727;
+        --modal-bg-color: black;
+        --bg-color: black;
+
+        --main-color: #ddd;
+        --text-shadow-color: #444;
+        --input-color: #777;
+    }
+}
+
 /*** Common ***********************************************************/
+
 
 * {
     margin: 0;
@@ -9,6 +40,7 @@ html, body {
     font-family: sans-serif;
     height: 100%;
     overflow: hidden;
+    color: var(--main-color)
 }
 
 h1, h2 {
@@ -21,26 +53,26 @@ p {
 }
 
 a {
-    color: #b94669;
+    color: var(--link-color);
     text-decoration: none;
 }
 
 a:visited {
-    color: #b94669;
+    color: var(--link-color);
 }
 
 a:hover {
-    color: #d36083;
+    color: var(--hover-color);
     text-decoration: underline;
 }
 
 a:active {
-    color: #a02d50;
+    color: var(--active-color);
 }
 
 input {
     border-radius: 3px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--input-color);
     box-shadow: inset 0 1px 2px rgba(0,0,0,0.075);
     font-family: sans-serif;
     font-size: 12px;
@@ -57,7 +89,7 @@ input:focus {
 }
 
 input::-webkit-input-placeholder {
-    color: #ccc;
+    color: var(--input-color);
 }
 
 /*** Anims ************************************************************/
@@ -74,8 +106,9 @@ input::-webkit-input-placeholder {
 /*** Main *************************************************************/
 
 .main {
+    background-color: var(--bg-color);
     align-items: center;
-    color: #222;
+    color: var(--main-color);
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -113,7 +146,7 @@ input::-webkit-input-placeholder {
 }
 
 .inputarea a {
-    color: #ccc;
+    color: var(--input-color);
     margin: 5px 5px;
     padding: 2px;
 }
@@ -126,7 +159,7 @@ input::-webkit-input-placeholder {
 .text {
     border-radius: 10px;
     border: 1px solid #eee;
-    box-shadow: 10px 10px 50px 5px #aaa;
+    box-shadow: 10px 10px 50px 5px var(--text-shadow-color);
     counter-reset: num-chars;
     overflow: hidden;
 }
@@ -149,11 +182,11 @@ input::-webkit-input-placeholder {
 }
 
 .text li:nth-child(odd) {
-    background: white;
+    background: var(--bg-odd-letters);
 }
 
 .text li:nth-child(even) {
-    background: #f7f7f7;
+    background: var(--bg-even-letters);
 }
 
 .text li::after {
@@ -212,7 +245,7 @@ input::-webkit-input-placeholder {
 
 .modal {
     -webkit-overflow-scrolling: touch;
-    background: white;
+    background: var(--modal-bg-color);
     border-radius: 3px;
     box-shadow: 0px 0px 20px rgba(0,0,0,0.6);
     left: 50%;
@@ -260,10 +293,10 @@ input::-webkit-input-placeholder {
 }
 
 .modal button:hover {
-    background: #d36083;
+    background: var(--hover-color);
 }
 .modal button:active {
-    background: #a02d50;
+    background: var(--active-color);
 }
 
 .modal input {
