@@ -1,16 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
-<ellipse cx="110" cy="110" rx="45" ry="35" fill="#8b4513" stroke="#000" stroke-width="2"/>
-    <circle cx="80" cy="85" r="25" fill="#8b4513" stroke="#000" stroke-width="2"/>
-    <ellipse cx="60" cy="75" rx="8" ry="15" fill="#8b4513" stroke="#000" stroke-width="2"/>
-    <ellipse cx="90" cy="75" rx="8" ry="15" fill="#8b4513" stroke="#000" stroke-width="2"/>
-    <circle cx="72" cy="80" r="4" fill="#000"/>
-    <circle cx="82" cy="80" r="4" fill="#000"/>
-    <circle cx="77" cy="92" r="6" fill="#000"/>
-    <line x1="77" y1="92" x2="77" y2="98" stroke="#000" stroke-width="2"/>
-    <path d="M 70 98 Q 77 102 84 98" stroke="#000" stroke-width="2" fill="none"/>
-    <ellipse cx="150" cy="105" rx="15" ry="25" fill="#8b4513" stroke="#000" stroke-width="2"/>
-    <rect x="65" y="135" width="12" height="25" fill="#8b4513" stroke="#000" stroke-width="2"/>
-    <rect x="90" y="135" width="12" height="25" fill="#8b4513" stroke="#000" stroke-width="2"/>
-    <rect x="120" y="135" width="12" height="25" fill="#8b4513" stroke="#000" stroke-width="2"/>
-    <rect x="145" y="135" width="12" height="25" fill="#8b4513" stroke="#000" stroke-width="2"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Dog illustration -->
+  <circle cx="100" cy="100" r="40" fill="#8B4513"/>
+  <circle cx="80" cy="85" r="8" fill="#000"/>
+  <circle cx="120" cy="85" r="8" fill="#000"/>
+  <ellipse cx="100" cy="110" rx="15" ry="10" fill="#FFB6C1"/>
+  <circle cx="95" cy="105" r="3" fill="#000"/>
+  <circle cx="105" cy="105" r="3" fill="#000"/>
+  <ellipse cx="60" cy="80" rx="20" ry="30" fill="#8B4513"/>
+  <ellipse cx="140" cy="80" rx="20" ry="30" fill="#8B4513"/>
+  <text x="100" y="170" font-size="20" text-anchor="middle" fill="#333">DOG</text>
 </svg>

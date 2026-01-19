@@ -18,7 +18,7 @@ Large-type.com now includes a **word image cards** feature that displays images 
 
 When you type words in the input field, the application automatically:
 1. **Detects words** - Splits your text by spaces to identify individual words
-2. **Searches for matching images** - Looks in the `word-images/` directory for images matching those words
+2. **Searches for matching images** - Looks in the `words/` directory for images matching those words
 3. **Displays image cards** - Shows beautiful, animated cards at the top of the screen with the matching images
 4. **Updates dynamically** - As you type, cards appear and disappear in real-time based on the current text
 
@@ -32,7 +32,7 @@ When you type words in the input field, the application automatically:
 
 ### Adding Your Own Images
 
-To add new word-image associations, simply add image files to the `word-images/` directory:
+To add new word-image associations, simply add image files to the `words/` directory:
 
 **Supported formats:** `.png`, `.jpg`, `.jpeg`, `.gif`, `.webp`, `.svg`
 
