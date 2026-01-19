@@ -8,6 +8,7 @@ window.addEventListener('DOMContentLoaded', function() {
     var inputField = document.querySelector('.inputbox');
     var charboxTemplate = document.querySelector('#charbox-template');
     var defaultTitle = document.querySelector("title").innerText;
+    var renderTimeout = null;
 
     function updateFragment(text) {
         // Don't spam the browser history & strip query strings.
@@ -37,10 +38,19 @@ window.addEventListener('DOMContentLoaded', function() {
     }
 
     function renderText() {
+        // Debounce rendering to improve typing performance
+        if (renderTimeout) {
+            clearTimeout(renderTimeout);
+        }
+
+        renderTimeout = setTimeout(function() {
+            renderTextImmediate();
+        }, 16); // ~60fps
+    }
+
+    function renderTextImmediate() {
         // Return a space as typing indicator if text is empty.
         var text = decodeURIComponent(location.hash.split('#')[1] || ' ');
-
-        clearChars();
 
         var textWidth = null;
         var forEachSegment = null;
@@ -89,6 +99,7 @@ window.addEventListener('DOMContentLoaded', function() {
         // Start with 200pt max, wrap at 32pt threshold, reduce below 32pt if vertical overflow
         var MAX_FONT_SIZE = 200;
         var WRAP_THRESHOLD = 32;
+        var MIN_FONT_SIZE = 8;
         var viewportWidth = window.innerWidth;
         var viewportHeight = window.innerHeight;
 
@@ -105,17 +116,31 @@ window.addEventListener('DOMContentLoaded', function() {
             shouldWrap = true;
         }
 
-        // First render pass with calculated font size
+        // Render once with calculated font size
         renderCharsWithFontSize(fontSize, shouldWrap, forEachSegment, text);
 
-        // Check for vertical overflow and adjust if needed
-        if (shouldWrap) {
-            var maxIterations = 20;
-            var iteration = 0;
-            while (iteration < maxIterations && checkVerticalOverflow()) {
-                fontSize = Math.max(fontSize * 0.9, 8); // Reduce by 10%, min 8pt
-                renderCharsWithFontSize(fontSize, shouldWrap, forEachSegment, text);
-                iteration++;
+        // Use binary search to find optimal font size if wrapping and overflow detected
+        if (shouldWrap && checkVerticalOverflow()) {
+            var minSize = MIN_FONT_SIZE;
+            var maxSize = WRAP_THRESHOLD;
+            var optimalSize = minSize;
+
+            // Binary search for optimal font size (max 6 iterations instead of 20)
+            while (maxSize - minSize > 1) {
+                var midSize = Math.floor((minSize + maxSize) / 2);
+                renderCharsWithFontSize(midSize, shouldWrap, forEachSegment, text);
+
+                if (checkVerticalOverflow()) {
+                    maxSize = midSize;
+                } else {
+                    minSize = midSize;
+                    optimalSize = midSize;
+                }
+            }
+
+            // Final render with optimal size
+            if (fontSize !== optimalSize) {
+                renderCharsWithFontSize(optimalSize, shouldWrap, forEachSegment, text);
             }
         }
 
