@@ -172,6 +172,9 @@ window.addEventListener('DOMContentLoaded', function() {
         }
         updateFragment(text);
         updateTitle(text);
+
+        // Update word image cards
+        renderWordCards();
     }
 
     function renderCharsWithFontSize(fontSize, shouldWrap, forEachSegment, text) {
