@@ -174,9 +174,8 @@ input::-webkit-input-placeholder {
 }
 
 .text li {
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
-    float: left;
     font-family: var(--display-font);
 }
 
