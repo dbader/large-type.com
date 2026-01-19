@@ -177,12 +177,8 @@ window.addEventListener('DOMContentLoaded', function() {
     function renderCharsWithFontSize(fontSize, shouldWrap, forEachSegment, text) {
         clearChars();
 
-        // Set wrapping behavior on container
-        if (shouldWrap) {
-            textDiv.style.maxWidth = '90vw';
-        } else {
-            textDiv.style.maxWidth = 'none';
-        }
+        // No maxWidth constraint - let text wrap naturally at viewport edge
+        textDiv.style.maxWidth = 'none';
 
         forEachSegment(function(seg) {
             var charbox = charboxTemplate.content.cloneNode(true);
