@@ -206,20 +206,6 @@ window.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-        // Ignore the placeholder space (typing indicator).
-        if (text === ' ') {
-            text = '';
-        }
-
-        // Don't jump the cursor to the end
-        if (inputField.value !== text) {
-            inputField.value = text;
-        }
-        updateFragment(text);
-        updateTitle(text);
-
-        // Update word image cards
-        renderWordCards();
     function checkVerticalOverflow() {
         var viewportHeight = window.innerHeight;
         var textRect = textDiv.getBoundingClientRect();
