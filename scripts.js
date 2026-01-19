@@ -120,10 +120,117 @@ window.addEventListener('DOMContentLoaded', function() {
         }
         updateFragment(text);
         updateTitle(text);
+
+        // Update word image cards
+        renderWordCards();
     }
 
     function onInput(evt) {
         updateFragment(evt.target.value);
+    }
+
+    // Word Image Cards Feature
+    var wordCardsContainer = document.querySelector('.word-cards-container');
+    var wordCardTemplate = document.querySelector('#word-card-template');
+    var imageCache = {}; // Cache for available images
+    var currentWordCards = []; // Track currently displayed word cards
+
+    // Check if an image file exists
+    async function imageExists(url) {
+        try {
+            const response = await fetch(url, { method: 'HEAD' });
+            return response.ok;
+        } catch (e) {
+            return false;
+        }
+    }
+
+    // Find all available images for a word
+    async function findImagesForWord(word) {
+        var lowerWord = word.toLowerCase();
+
+        // Check cache first
+        if (imageCache[lowerWord]) {
+            return imageCache[lowerWord];
+        }
+
+        var images = [];
+        var extensions = ['png', 'jpg', 'jpeg', 'gif', 'webp', 'svg'];
+
+        // Check for word.ext (e.g., dog.png, dog.jpg)
+        for (var ext of extensions) {
+            var url = 'word-images/' + lowerWord + '.' + ext;
+            if (await imageExists(url)) {
+                images.push(url);
+            }
+        }
+
+        // Check for word-N.ext (e.g., dog-1.png, dog-2.jpg)
+        for (var i = 1; i <= 10; i++) { // Check up to 10 variations
+            for (var ext of extensions) {
+                var url = 'word-images/' + lowerWord + '-' + i + '.' + ext;
+                if (await imageExists(url)) {
+                    images.push(url);
+                }
+            }
+        }
+
+        // Cache the results
+        imageCache[lowerWord] = images;
+        return images;
+    }
+
+    // Extract words from the current text
+    function extractWords(text) {
+        // Split by spaces and filter out empty strings
+        return text.toUpperCase().split(/\s+/).filter(function(word) {
+            return word.length > 0;
+        });
+    }
+
+    // Clear all word cards
+    function clearWordCards() {
+        // Remove all cards except the template
+        var cards = wordCardsContainer.querySelectorAll('.word-card');
+        cards.forEach(function(card) {
+            wordCardsContainer.removeChild(card);
+        });
+        currentWordCards = [];
+    }
+
+    // Render word cards based on current text
+    async function renderWordCards() {
+        var text = decodeURIComponent(location.hash.split('#')[1] || '');
+        var words = extractWords(text);
+
+        // Clear existing cards
+        clearWordCards();
+
+        // Process each word
+        for (var word of words) {
+            var images = await findImagesForWord(word);
+
+            if (images.length > 0) {
+                // Pick a random image from available options
+                var randomImage = images[Math.floor(Math.random() * images.length)];
+
+                // Create card from template
+                var cardElement = wordCardTemplate.content.cloneNode(true);
+                var cardDiv = cardElement.querySelector('.word-card');
+                var imgElement = cardElement.querySelector('.word-image');
+
+                imgElement.src = randomImage;
+                imgElement.alt = word;
+
+                // Add error handling for failed image loads
+                imgElement.addEventListener('error', function() {
+                    this.parentElement.style.display = 'none';
+                });
+
+                wordCardsContainer.appendChild(cardElement);
+                currentWordCards.push(word);
+            }
+        }
     }
 
     function enterInputMode(evt) {
