@@ -206,6 +206,20 @@ window.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+        // Ignore the placeholder space (typing indicator).
+        if (text === ' ') {
+            text = '';
+        }
+
+        // Don't jump the cursor to the end
+        if (inputField.value !== text) {
+            inputField.value = text;
+        }
+        updateFragment(text);
+        updateTitle(text);
+
+        // Update word image cards
+        renderWordCards();
     function checkVerticalOverflow() {
         var viewportHeight = window.innerHeight;
         var textRect = textDiv.getBoundingClientRect();
@@ -247,7 +261,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
         // Check for word.ext (e.g., dog.png, dog.jpg)
         for (var ext of extensions) {
-            var url = 'words/' + lowerWord + '.' + ext;
+            var url = 'word-images/' + lowerWord + '.' + ext;
             if (await imageExists(url)) {
                 images.push(url);
             }
@@ -256,7 +270,7 @@ window.addEventListener('DOMContentLoaded', function() {
         // Check for word-N.ext (e.g., dog-1.png, dog-2.jpg)
         for (var i = 1; i <= 10; i++) { // Check up to 10 variations
             for (var ext of extensions) {
-                var url = 'words/' + lowerWord + '-' + i + '.' + ext;
+                var url = 'word-images/' + lowerWord + '-' + i + '.' + ext;
                 if (await imageExists(url)) {
                     images.push(url);
                 }
