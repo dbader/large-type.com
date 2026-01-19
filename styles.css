@@ -13,6 +13,8 @@
     --main-color: #222;
     --text-shadow-color: #aaa;
     --input-color: #ccc;
+
+    --display-font: 'Comic Sans MS', 'Century Gothic', 'Trebuchet MS', Verdana, sans-serif;
 }
 
 body.dark-mode {
@@ -174,7 +176,7 @@ input::-webkit-input-placeholder {
     display: flex;
     flex-direction: column;
     float: left;
-    font-family: monospace;
+    font-family: var(--display-font);
     font-size: 10vw;
 }
 
@@ -309,4 +311,27 @@ input::-webkit-input-placeholder {
 
 .modal li {
     margin-top: 7.5px;
+}
+
+.modal select {
+    background: var(--modal-bg-color);
+    border-radius: 3px;
+    border: 1px solid var(--input-color);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.075);
+    color: var(--main-color);
+    cursor: pointer;
+    font-family: sans-serif;
+    font-size: 16px;
+    outline: none;
+    padding: 8px;
+    width: 100%;
+}
+
+.modal select:focus {
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.075), 0 0 5px rgba(81,167,232,0.5);
+    outline: none;
+}
+
+.modal label {
+    color: var(--main-color);
 }

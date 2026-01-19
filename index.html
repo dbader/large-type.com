@@ -39,6 +39,27 @@
       </ul>
     </div>
 
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal">
+      <h2>Settings</h2>
+      <p>Press <strong>Ctrl+Shift+E</strong> to toggle this menu</p>
+
+      <div style="margin-top: 20px;">
+        <label for="font-select" style="display: block; margin-bottom: 8px;">
+          <strong>Display Font:</strong>
+        </label>
+        <select id="font-select" style="width: 100%; padding: 8px; font-size: 16px; border-radius: 3px; border: 1px solid var(--input-color);">
+          <option value="comic">Child-Friendly (Comic Sans MS)</option>
+          <option value="verdana">Clean Sans-Serif (Verdana)</option>
+          <option value="georgia">Serif (Georgia)</option>
+          <option value="arial">Standard (Arial)</option>
+          <option value="monospace">Monospace (Courier New)</option>
+        </select>
+      </div>
+
+      <button id="close-settings">Close</button>
+    </div>
+
     <script src="scripts.js"></script>
   </body>
 </html>

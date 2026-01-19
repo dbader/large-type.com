@@ -135,6 +135,58 @@ window.addEventListener('DOMContentLoaded', function() {
         inputField.focus();
     }
 
+    // Settings Modal Management
+    var settingsModal = document.querySelector('#settings-modal');
+    var fontSelect = document.querySelector('#font-select');
+    var closeSettingsBtn = document.querySelector('#close-settings');
+
+    var fontFamilies = {
+        'comic': "'Comic Sans MS', 'Century Gothic', 'Trebuchet MS', Verdana, sans-serif",
+        'verdana': "Verdana, Geneva, 'DejaVu Sans', sans-serif",
+        'georgia': "Georgia, 'Times New Roman', serif",
+        'arial': "Arial, Helvetica, sans-serif",
+        'monospace': "'Courier New', Courier, monospace"
+    };
+
+    function getFontPreference() {
+        return localStorage.getItem('display-font') || 'comic';
+    }
+
+    function setFontPreference(fontKey) {
+        localStorage.setItem('display-font', fontKey);
+        applyFont(fontKey);
+    }
+
+    function applyFont(fontKey) {
+        var fontFamily = fontFamilies[fontKey] || fontFamilies['comic'];
+        document.documentElement.style.setProperty('--display-font', fontFamily);
+        fontSelect.value = fontKey;
+    }
+
+    function toggleSettingsModal() {
+        settingsModal.classList.toggle('open');
+        if (settingsModal.classList.contains('open')) {
+            mainDiv.classList.add('blurred');
+        } else {
+            mainDiv.classList.remove('blurred');
+        }
+    }
+
+    function closeSettingsModal() {
+        settingsModal.classList.remove('open');
+        mainDiv.classList.remove('blurred');
+    }
+
+    // Settings event listeners
+    closeSettingsBtn.addEventListener('click', closeSettingsModal, false);
+
+    fontSelect.addEventListener('change', function(evt) {
+        setFontPreference(evt.target.value);
+    }, false);
+
+    // Apply saved font preference on load
+    applyFont(getFontPreference());
+
     // Prevent focus loss and problematic keys
     inputField.addEventListener('blur', function() {
         // Immediately refocus if focus is lost
@@ -142,6 +194,13 @@ window.addEventListener('DOMContentLoaded', function() {
     }, false);
 
     window.addEventListener('keydown', function(evt) {
+        // Toggle settings menu with Ctrl+Shift+E
+        if (evt.ctrlKey && evt.shiftKey && evt.key === 'E') {
+            evt.preventDefault();
+            toggleSettingsModal();
+            return;
+        }
+
         // Prevent Tab from moving focus
         if (evt.key === 'Tab') {
             evt.preventDefault();
