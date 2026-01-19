@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+<line x1="60" y1="140" x2="60" y2="160" stroke="#000" stroke-width="2"/>
+    <line x1="60" y1="160" x2="140" y2="160" stroke="#000" stroke-width="2"/>
+    <line x1="80" y1="140" x2="80" y2="160" stroke="#000" stroke-width="2"/>
+    <line x1="100" y1="140" x2="100" y2="160" stroke="#000" stroke-width="2"/>
+    <line x1="120" y1="140" x2="120" y2="160" stroke="#000" stroke-width="2"/>
+    <line x1="140" y1="140" x2="140" y2="160" stroke="#000" stroke-width="2"/>
+    <ellipse cx="55" cy="110" rx="8" ry="6" fill="#000"/>
+    <rect x="63" y="70" width="3" height="40" fill="#000"/>
+    <ellipse cx="75" cy="120" rx="8" ry="6" fill="#000"/>
+    <rect x="83" y="90" width="3" height="30" fill="#000"/>
+    <circle cx="100" cy="95" r="5" fill="#4169e1"/>
+    <path d="M 70 80 Q 90 70 110 80" stroke="#000" stroke-width="2" fill="none"/>
+</svg>
