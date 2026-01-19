@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+<rect x="60" y="50" width="80" height="110" fill="#4169e1" stroke="#000" stroke-width="3"/>
+    <rect x="65" y="50" width="10" height="110" fill="#2c5282"/>
+    <line x1="70" y1="60" x2="70" y2="150" stroke="#fff" stroke-width="1" stroke-dasharray="5,5"/>
+    <text x="100" y="110" font-size="24" fill="#fff" text-anchor="middle" font-weight="bold">ABC</text>
+</svg>

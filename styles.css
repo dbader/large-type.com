@@ -138,7 +138,8 @@ input::-webkit-input-placeholder {
     position: absolute;
     top: 0;
     width: 30%;
-    display: none;
+    opacity: 0;
+    pointer-events: none;
 }
 
 @media only screen and (max-width: 700px) {
@@ -177,7 +178,6 @@ input::-webkit-input-placeholder {
     flex-direction: column;
     float: left;
     font-family: var(--display-font);
-    font-size: 10vw;
 }
 
 .text li .number {
