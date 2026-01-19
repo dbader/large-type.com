@@ -61,6 +61,52 @@ python -m http.server 8000
 
 Then open http://localhost:8000/ to preview.
 
+### Local Network Hosting
+
+To host this application on your local network (LAN) so other computers can access it:
+
+**Quick Start:**
+```bash
+# On Linux/Mac:
+./start.sh
+
+# On Windows:
+start.bat
+
+# Or directly with Python:
+python3 start_server.py
+```
+
+The server will automatically:
+- Start on port 8000
+- Display your local network IP address
+- Make the app accessible to other devices on the same network
+
+**Example output:**
+```
+======================================================================
+🚀 Fun-Type Server Started!
+======================================================================
+
+📱 Access from THIS computer:
+   http://localhost:8000
+
+🌐 Access from OTHER computers on your local network:
+   http://192.168.1.100:8000
+
+💡 Tips:
+   - Make sure devices are on the same WiFi/network
+   - Check firewall settings if connection fails
+   - Press Ctrl+C to stop the server
+======================================================================
+```
+
+**Troubleshooting:**
+- Ensure all devices are on the same WiFi network
+- Check firewall settings if other devices can't connect
+- On Linux, you may need to allow port 8000 through the firewall
+- Use the displayed IP address (not localhost) on other devices
+
 ## Meta
 Design inspired by [1Password's](https://agilebits.com/onepassword) large-type feature.
 
