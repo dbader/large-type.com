@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Bathtub illustration -->
+  <ellipse cx="100" cy="110" rx="70" ry="30" fill="#87CEEB"/>
+  <rect x="30" y="110" width="140" height="20" rx="10" fill="#FFF"/>
+  <circle cx="40" cy="140" r="8" fill="#666"/>
+  <circle cx="160" cy="140" r="8" fill="#666"/>
+  <ellipse cx="100" cy="95" rx="60" ry="15" fill="#B0E0E6"/>
+  <circle cx="70" cy="85" r="5" fill="#FFF" opacity="0.7"/>
+  <circle cx="85" cy="80" r="4" fill="#FFF" opacity="0.7"/>
+  <circle cx="100" cy="78" r="6" fill="#FFF" opacity="0.7"/>
+  <circle cx="115" cy="80" r="4" fill="#FFF" opacity="0.7"/>
+  <circle cx="130" cy="85" r="5" fill="#FFF" opacity="0.7"/>
+  <rect x="150" y="60" width="8" height="40" fill="#C0C0C0"/>
+  <circle cx="154" cy="55" r="8" fill="#FFD700"/>
+  <text x="100" y="175" font-size="20" text-anchor="middle" fill="#333">BATH</text>
+</svg>

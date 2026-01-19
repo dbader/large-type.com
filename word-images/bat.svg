@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Bat illustration -->
+  <ellipse cx="100" cy="100" rx="25" ry="30" fill="#4B0082"/>
+  <circle cx="95" cy="95" r="4" fill="#FF0000"/>
+  <circle cx="105" cy="95" r="4" fill="#FF0000"/>
+  <path d="M 75 100 Q 40 80 30 90 Q 35 110 50 105 Q 60 100 75 105" fill="#4B0082"/>
+  <path d="M 125 100 Q 160 80 170 90 Q 165 110 150 105 Q 140 100 125 105" fill="#4B0082"/>
+  <polygon points="95,110 100,120 105,110" fill="#4B0082"/>
+  <circle cx="100" cy="90" r="3" fill="#000"/>
+  <text x="100" y="170" font-size="20" text-anchor="middle" fill="#333">BAT</text>
+</svg>
