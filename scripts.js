@@ -135,6 +135,32 @@ window.addEventListener('DOMContentLoaded', function() {
         inputField.focus();
     }
 
+    // Prevent focus loss and problematic keys
+    inputField.addEventListener('blur', function() {
+        // Immediately refocus if focus is lost
+        inputField.focus();
+    }, false);
+
+    window.addEventListener('keydown', function(evt) {
+        // Prevent Tab from moving focus
+        if (evt.key === 'Tab') {
+            evt.preventDefault();
+            return;
+        }
+
+        // Prevent Escape key
+        if (evt.key === 'Escape') {
+            evt.preventDefault();
+            return;
+        }
+
+        // Prevent F1-F12 keys from triggering browser actions
+        if (evt.key.match(/^F([1-9]|1[0-2])$/)) {
+            evt.preventDefault();
+            return;
+        }
+    }, false);
+
     inputField.addEventListener('input', onInput, false);
     textDiv.addEventListener('click', enterInputMode, false);
     window.addEventListener('keypress', enterInputMode, false);
