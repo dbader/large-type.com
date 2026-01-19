@@ -424,5 +424,8 @@ window.addEventListener('DOMContentLoaded', function() {
         updateFragment(WELCOME_MSG);
     }
 
-    renderText();
+    // Use requestAnimationFrame to ensure layout has settled before initial render
+    requestAnimationFrame(function() {
+        renderText();
+    });
 });
