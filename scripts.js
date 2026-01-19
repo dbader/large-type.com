@@ -9,6 +9,8 @@ window.addEventListener('DOMContentLoaded', function() {
     var charboxTemplate = document.querySelector('#charbox-template');
     var defaultTitle = document.querySelector("title").innerText;
     var renderTimeout = null;
+    var lastRenderTime = 0;
+    var renderThrottle = 16; // ms - ~60fps
 
     function updateFragment(text) {
         // Don't spam the browser history & strip query strings.
@@ -38,14 +40,29 @@ window.addEventListener('DOMContentLoaded', function() {
     }
 
     function renderText() {
-        // Debounce rendering to improve typing performance
+        // Throttle rendering to improve typing performance while maintaining responsiveness
+        var now = Date.now();
+        var timeSinceLastRender = now - lastRenderTime;
+
+        // Clear any pending render
         if (renderTimeout) {
             clearTimeout(renderTimeout);
+            renderTimeout = null;
         }
 
-        renderTimeout = setTimeout(function() {
+        if (timeSinceLastRender >= renderThrottle) {
+            // Enough time has passed, render immediately
+            lastRenderTime = now;
             renderTextImmediate();
-        }, 16); // ~60fps
+        } else {
+            // Schedule render for the next available slot
+            var delay = renderThrottle - timeSinceLastRender;
+            renderTimeout = setTimeout(function() {
+                lastRenderTime = Date.now();
+                renderTextImmediate();
+                renderTimeout = null;
+            }, delay);
+        }
     }
 
     function renderTextImmediate() {
