@@ -167,12 +167,10 @@ input::-webkit-input-placeholder {
     border-radius: 10px;
     border: 1px solid #eee;
     box-shadow: 10px 10px 50px 5px var(--text-shadow-color);
-    counter-reset: num-chars;
     overflow: hidden;
 }
 
 .text li {
-    counter-increment: num-chars;
     display: flex;
     flex-direction: column;
     float: left;
@@ -198,20 +196,6 @@ input::-webkit-input-placeholder {
 
 .text li:nth-child(even) {
     background: var(--bg-even-letters);
-}
-
-.text li::after {
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    color: #aaa;
-    content: counter(num-chars);
-    display: block;
-    font-size: 1.5vw;
-    text-align: center;
-    user-select: none;
 }
 
 .about {
