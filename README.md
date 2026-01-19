@@ -10,6 +10,64 @@ Even better, when you share text with large-type.com **only the person with the 
 
 Here's a quick [demo video](https://www.youtube.com/watch?v=EHaH3dO1YH4).
 
+## Word Image Cards Feature
+
+Large-type.com now includes a **word image cards** feature that displays images when specific words are typed. This creates a fun, visual experience where images appear above the large text display.
+
+### How It Works
+
+When you type words in the input field, the application automatically:
+1. **Detects words** - Splits your text by spaces to identify individual words
+2. **Searches for matching images** - Looks in the `word-images/` directory for images matching those words
+3. **Displays image cards** - Shows beautiful, animated cards at the top of the screen with the matching images
+4. **Updates dynamically** - As you type, cards appear and disappear in real-time based on the current text
+
+### Behavior Examples
+
+- Type `DOG` → A dog image card appears
+- Type `DOG CAT` → Both a dog card and a cat card appear
+- Type `DOGN` → The dog card disappears (no longer matches)
+- Type `BAT` then continue to `BATH` → The bat card is replaced by a bath card
+- Type `CAT DOG` → Two cards appear side-by-side
+
+### Adding Your Own Images
+
+To add new word-image associations, simply add image files to the `word-images/` directory:
+
+**Supported formats:** `.png`, `.jpg`, `.jpeg`, `.gif`, `.webp`, `.svg`
+
+**Naming conventions:**
+
+1. **Single image per word:**
+   - `dog.png` - Shows when "DOG" is typed
+   - `cat.jpg` - Shows when "CAT" is typed
+
+2. **Multiple images per word** (random selection):
+   - `dog.png` and `dog.jpg` - Randomly chooses one
+   - `dog-1.svg` and `dog-2.svg` - Randomly chooses one
+   - Can mix: `dog.png`, `dog-1.jpg`, `dog-2.svg` (all four options)
+
+3. **Multi-word phrases:**
+   - Currently supports space-separated words
+   - Each word is matched independently
+   - Example: typing "BIG DOG" shows two separate cards if `big.png` and `dog.png` exist
+
+**Notes:**
+- Word matching is **case-insensitive** (DOG, dog, Dog all match `dog.png`)
+- The system checks for up to 10 numbered variations (`word-1` through `word-10`)
+- Images are randomly selected from available matches each time
+- Failed image loads are automatically hidden
+
+### Current Example Words
+
+The repository includes example images for:
+- `dog` (with multiple variations)
+- `cat`
+- `bat`
+- `bath`
+
+Try typing these words to see the feature in action!
+
 ## FAQs
 
 ### What can I use it for?
