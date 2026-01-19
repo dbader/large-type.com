@@ -32,7 +32,11 @@ When you type words in the input field, the application automatically:
 
 ### Adding Your Own Images
 
-To add new word-image associations, simply add image files to the `words/` directory:
+To add new word-image associations:
+
+1. Add image files to the `words/` directory
+2. Regenerate the manifest: `python3 generate_manifest.py`
+3. Restart the server if it's running
 
 **Supported formats:** `.png`, `.jpg`, `.jpeg`, `.gif`, `.webp`, `.svg`
 
@@ -54,9 +58,9 @@ To add new word-image associations, simply add image files to the `words/` direc
 
 **Notes:**
 - Word matching is **case-insensitive** (DOG, dog, Dog all match `dog.png`)
-- The system checks for up to 10 numbered variations (`word-1` through `word-10`)
 - Images are randomly selected from available matches each time
 - Failed image loads are automatically hidden
+- The app uses a manifest file (`words/manifest.json`) for instant lookups
 
 ### Current Example Words
 

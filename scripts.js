@@ -223,69 +223,37 @@ window.addEventListener('DOMContentLoaded', function() {
     // Word Image Cards Feature
     var wordCardsContainer = document.querySelector('.word-cards-container');
     var wordCardTemplate = document.querySelector('#word-card-template');
-    var imageCache = {}; // Cache for available images
+    var imageManifest = null; // Manifest loaded from server
     var currentWordCards = []; // Track currently displayed word cards
 
-    // Check if an image file exists
-    async function imageExists(url) {
+    // Load the image manifest once on startup
+    async function loadImageManifest() {
         try {
-            const response = await fetch(url, { method: 'HEAD' });
-            return response.ok;
+            const response = await fetch('words/manifest.json');
+            if (response.ok) {
+                imageManifest = await response.json();
+                console.log('Loaded image manifest with', Object.keys(imageManifest).length, 'words');
+            } else {
+                console.error('Failed to load image manifest');
+                imageManifest = {}; // Empty manifest as fallback
+            }
         } catch (e) {
-            return false;
+            console.error('Error loading image manifest:', e);
+            imageManifest = {}; // Empty manifest as fallback
         }
     }
 
-    // Find all available images for a word
-    async function findImagesForWord(word) {
+    // Find all available images for a word (instant lookup, no network requests)
+    function findImagesForWord(word) {
         var lowerWord = word.toLowerCase();
 
-        // Check cache first
-        if (imageCache[lowerWord]) {
-            return imageCache[lowerWord];
+        // Wait for manifest to load
+        if (imageManifest === null) {
+            return [];
         }
 
-        var images = [];
-        // Prioritize .svg as it's the most common format in this project
-        var extensions = ['svg', 'png', 'jpg', 'jpeg', 'gif', 'webp'];
-        var foundExtension = null;
-
-        // Check for word.ext (e.g., dog.svg, dog.png)
-        for (var ext of extensions) {
-            var url = 'words/' + lowerWord + '.' + ext;
-            if (await imageExists(url)) {
-                images.push(url);
-                foundExtension = ext;
-                break; // Once we find the base image, use its extension for variations
-            }
-        }
-
-        // Check for word-N.ext (e.g., dog-1.svg, dog-2.svg)
-        // Only check variations with the extension we found, or all extensions if no base found
-        if (foundExtension) {
-            // If we found a base image, only check variations with the same extension
-            for (var i = 1; i <= 3; i++) { // Check up to 3 variations
-                var url = 'words/' + lowerWord + '-' + i + '.' + foundExtension;
-                if (await imageExists(url)) {
-                    images.push(url);
-                }
-            }
-        } else {
-            // If no base image found, do a quick check for numbered variations
-            for (var i = 1; i <= 3; i++) {
-                for (var ext of extensions) {
-                    var url = 'words/' + lowerWord + '-' + i + '.' + ext;
-                    if (await imageExists(url)) {
-                        images.push(url);
-                        break; // Move to next number once we find one
-                    }
-                }
-            }
-        }
-
-        // Cache the results
-        imageCache[lowerWord] = images;
-        return images;
+        // Simple lookup in manifest
+        return imageManifest[lowerWord] || [];
     }
 
     // Extract words from the current text
@@ -307,7 +275,7 @@ window.addEventListener('DOMContentLoaded', function() {
     }
 
     // Render word cards based on current text
-    async function renderWordCards() {
+    function renderWordCards() {
         var text = decodeURIComponent(location.hash.split('#')[1] || '');
         var words = extractWords(text);
 
@@ -316,7 +284,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
         // Process each word
         for (var word of words) {
-            var images = await findImagesForWord(word);
+            var images = findImagesForWord(word);
 
             if (images.length > 0) {
                 // Pick a random image from available options
@@ -443,6 +411,9 @@ window.addEventListener('DOMContentLoaded', function() {
     if (!location.hash) {
         updateFragment(WELCOME_MSG);
     }
+
+    // Load image manifest on startup
+    loadImageManifest();
 
     // Use requestAnimationFrame to ensure layout has settled before initial render
     requestAnimationFrame(function() {
