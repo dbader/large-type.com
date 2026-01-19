@@ -166,10 +166,13 @@ window.addEventListener('DOMContentLoaded', function() {
             text = '';
         }
 
-        // Don't jump the cursor to the end
+        // Always keep cursor at the end of the text input
         if (inputField.value !== text) {
             inputField.value = text;
         }
+        // Set cursor position to the end
+        inputField.selectionStart = inputField.value.length;
+        inputField.selectionEnd = inputField.value.length;
         updateFragment(text);
         updateTitle(text);
 
