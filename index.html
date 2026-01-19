@@ -28,13 +28,7 @@
     <div class="main">
       <span class="inputarea">
         <input type="text" class="inputbox" tabindex="1" placeholder="Enter your text here" />
-        <span class="button-row">
-          <a href="" class="js-help-button">What is this?</a>
-          <a href="" class="js-share-button">Share this text</a>
-        </span>
       </span>
-
-      <span id="darktoggle"></span>
 
       <ul class="text">
         <template id="charbox-template">
@@ -43,61 +37,8 @@
           </li>
         </template>
       </ul>
-
-      <span class="about">
-        Made with love by <a href="https://dbader.org">Dan Bader</a> &mdash;
-        Fork or suggest edits on <a href="https://github.com/dbader/large-type.com">GitHub</a> &mdash;
-        <a href="https://twitter.com/share" class="twitter-share-button"
-           data-url="http://large-type.com"
-           data-text="Nice utility website to display &amp; share text in a large font directly from your browser"
-           data-via="dbader_org" data-related="dbader_org">Tweet</a>
-      </span>
-    </div>
-
-    <!-- Modals -->
-    <div class="modal js-help-modal">
-      <h2>What is large-type.com?</h2>
-      <p>Large-type.com lets you <strong>display &amp; share text in a very large font</strong> directly from your browser. Whoa!</p>
-      <p>That's handy whenever you need to <strong>read something on your screen from further away</strong>&mdash;for example, phone numbers and passwords. Nice!</p>
-      <p>Even better, when you share text with large-type.com <strong>only the person with the link sees your text</strong>. Rendering happens locally on your browser and your text is not transmitted to any servers. How cool!</p>
-
-      <h2>What can I use it for?</h2>
-      <ul>
-        <li>
-          Read a phone number from across the room:<br><a target="_blank" href="/#(555)-123-456">large-type.com/#(555)-123-456</a>
-        </li>
-        <li>
-          Share your IP address with a co-worker:<br><a target="_blank" href="/#192.168.1.23">large-type.com/#192.168.1.23</a>
-        </li>
-        <li>
-          Show your friend the WiFi password:<br><a target="_blank" href="/#P4%24%24w0rd">large-type.com/#P4$$w0rd</a>
-        </li>
-        <li>
-          Profess your love from runaway train:<br><a target="_blank" href="/#I❤U">large-type.com/#I❤U</a>
-        </li>
-      </ul>
-      <p><a target="_blank" href="https://github.com/dbader/large-type.com#faqs">See more examples</a></p>
-
-      <h2>Quick, tell your friends!</h2>
-      <p>
-      <a href="https://twitter.com/share" class="twitter-share-button"
-           data-url="http://large-type.com"
-           data-text="Nice utility website to display &amp; share text in a large font directly from your browser"
-           data-size="large"
-           data-via="dbader_org" data-related="dbader_org">Tweet</a>
-      </p>
-
-      <button class="js-modal-close">Close</button>
-    </div>
-
-    <div class="modal js-share-modal">
-      <h2>Copy the link below:</h2>
-      <input type="text" class="js-share-link" value=""/>
-      <p><a href="https://github.com/dbader/large-type.com/blob/gh-pages/README.md#how-secure-is-it">How secure is this?</a></p>
-      <button class="js-modal-close">Close</button>
     </div>
 
     <script src="scripts.js"></script>
-    <script async src="https://platform.twitter.com/widgets.js"></script>
   </body>
 </html>
