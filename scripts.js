@@ -8,6 +8,9 @@ window.addEventListener('DOMContentLoaded', function() {
     var inputField = document.querySelector('.inputbox');
     var charboxTemplate = document.querySelector('#charbox-template');
     var defaultTitle = document.querySelector("title").innerText;
+    var renderTimeout = null;
+    var lastRenderTime = 0;
+    var renderThrottle = 16; // ms - ~60fps
 
     function updateFragment(text) {
         // Don't spam the browser history & strip query strings.
@@ -37,10 +40,34 @@ window.addEventListener('DOMContentLoaded', function() {
     }
 
     function renderText() {
+        // Throttle rendering to improve typing performance while maintaining responsiveness
+        var now = Date.now();
+        var timeSinceLastRender = now - lastRenderTime;
+
+        // Clear any pending render
+        if (renderTimeout) {
+            clearTimeout(renderTimeout);
+            renderTimeout = null;
+        }
+
+        if (timeSinceLastRender >= renderThrottle) {
+            // Enough time has passed, render immediately
+            lastRenderTime = now;
+            renderTextImmediate();
+        } else {
+            // Schedule render for the next available slot
+            var delay = renderThrottle - timeSinceLastRender;
+            renderTimeout = setTimeout(function() {
+                lastRenderTime = Date.now();
+                renderTextImmediate();
+                renderTimeout = null;
+            }, delay);
+        }
+    }
+
+    function renderTextImmediate() {
         // Return a space as typing indicator if text is empty.
         var text = decodeURIComponent(location.hash.split('#')[1] || ' ');
-
-        clearChars();
 
         var textWidth = null;
         var forEachSegment = null;
@@ -85,12 +112,82 @@ window.addEventListener('DOMContentLoaded', function() {
             };
         }
 
-        var fontSize = Math.min(150 / textWidth, 30);
+        // Calculate responsive font size with wrapping logic
+        // Start with 200pt max, wrap at 32pt threshold, reduce below 32pt if vertical overflow
+        var MAX_FONT_SIZE = 200;
+        var WRAP_THRESHOLD = 32;
+        var MIN_FONT_SIZE = 8;
+        var viewportWidth = window.innerWidth;
+        var viewportHeight = window.innerHeight;
+
+        // Estimate character width at various font sizes (roughly 0.6em per character)
+        var estimatedCharWidth = 0.6;
+        var singleLineFontSize = Math.min((viewportWidth * 0.9) / (textWidth * estimatedCharWidth), MAX_FONT_SIZE);
+
+        var fontSize = singleLineFontSize;
+        var shouldWrap = false;
+
+        // If single-line font size would be below wrap threshold, enable wrapping at threshold
+        if (singleLineFontSize < WRAP_THRESHOLD) {
+            fontSize = WRAP_THRESHOLD;
+            shouldWrap = true;
+        }
+
+        // Render once with calculated font size
+        renderCharsWithFontSize(fontSize, shouldWrap, forEachSegment, text);
+
+        // Use binary search to find optimal font size if wrapping and overflow detected
+        if (shouldWrap && checkVerticalOverflow()) {
+            var minSize = MIN_FONT_SIZE;
+            var maxSize = WRAP_THRESHOLD;
+            var optimalSize = minSize;
+
+            // Binary search for optimal font size (max 6 iterations instead of 20)
+            while (maxSize - minSize > 1) {
+                var midSize = Math.floor((minSize + maxSize) / 2);
+                renderCharsWithFontSize(midSize, shouldWrap, forEachSegment, text);
+
+                if (checkVerticalOverflow()) {
+                    maxSize = midSize;
+                } else {
+                    minSize = midSize;
+                    optimalSize = midSize;
+                }
+            }
+
+            // Final render with optimal size
+            if (fontSize !== optimalSize) {
+                renderCharsWithFontSize(optimalSize, shouldWrap, forEachSegment, text);
+            }
+        }
+
+        // Ignore the placeholder space (typing indicator).
+        if (text === ' ') {
+            text = '';
+        }
+
+        // Don't jump the cursor to the end
+        if (inputField.value !== text) {
+            inputField.value = text;
+        }
+        updateFragment(text);
+        updateTitle(text);
+    }
+
+    function renderCharsWithFontSize(fontSize, shouldWrap, forEachSegment, text) {
+        clearChars();
+
+        // Set wrapping behavior on container
+        if (shouldWrap) {
+            textDiv.style.maxWidth = '90vw';
+        } else {
+            textDiv.style.maxWidth = 'none';
+        }
 
         forEachSegment(function(seg) {
             var charbox = charboxTemplate.content.cloneNode(true);
             var charElem = charbox.querySelector('.char');
-            charElem.style.fontSize = fontSize + 'vw';
+            charElem.style.fontSize = fontSize + 'pt';
 
             if (seg !== ' ') {
                 charElem.textContent = seg;
@@ -108,18 +205,13 @@ window.addEventListener('DOMContentLoaded', function() {
 
             textDiv.appendChild(charbox);
         });
+    }
 
-        // Ignore the placeholder space (typing indicator).
-        if (text === ' ') {
-            text = '';
-        }
-
-        // Don't jump the cursor to the end
-        if (inputField.value !== text) {
-            inputField.value = text;
-        }
-        updateFragment(text);
-        updateTitle(text);
+    function checkVerticalOverflow() {
+        var viewportHeight = window.innerHeight;
+        var textRect = textDiv.getBoundingClientRect();
+        // Add some padding for comfort
+        return textRect.height > (viewportHeight * 0.8);
     }
 
     function onInput(evt) {
