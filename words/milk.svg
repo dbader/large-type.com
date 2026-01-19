@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+<path d="M 80 50 L 75 90 L 75 150 L 125 150 L 125 90 L 120 50 Z" fill="#fff" stroke="#000" stroke-width="2"/>
+    <rect x="75" y="45" width="50" height="10" fill="#ff0000" stroke="#000" stroke-width="2"/>
+    <ellipse cx="100" cy="45" rx="25" ry="5" fill="#ff0000" stroke="#000" stroke-width="1"/>
+    <rect x="85" y="65" width="30" height="25" fill="#fff" stroke="#4169e1" stroke-width="2"/>
+    <text x="100" y="82" font-size="16" fill="#4169e1" text-anchor="middle" font-weight="bold">MILK</text>
+</svg>
