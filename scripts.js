@@ -85,12 +85,67 @@ window.addEventListener('DOMContentLoaded', function() {
             };
         }
 
-        var fontSize = Math.min(150 / textWidth, 30);
+        // Calculate responsive font size with wrapping logic
+        // Start with 200pt max, wrap at 32pt threshold, reduce below 32pt if vertical overflow
+        var MAX_FONT_SIZE = 200;
+        var WRAP_THRESHOLD = 32;
+        var viewportWidth = window.innerWidth;
+        var viewportHeight = window.innerHeight;
+
+        // Estimate character width at various font sizes (roughly 0.6em per character)
+        var estimatedCharWidth = 0.6;
+        var singleLineFontSize = Math.min((viewportWidth * 0.9) / (textWidth * estimatedCharWidth), MAX_FONT_SIZE);
+
+        var fontSize = singleLineFontSize;
+        var shouldWrap = false;
+
+        // If single-line font size would be below wrap threshold, enable wrapping at threshold
+        if (singleLineFontSize < WRAP_THRESHOLD) {
+            fontSize = WRAP_THRESHOLD;
+            shouldWrap = true;
+        }
+
+        // First render pass with calculated font size
+        renderCharsWithFontSize(fontSize, shouldWrap, forEachSegment, text);
+
+        // Check for vertical overflow and adjust if needed
+        if (shouldWrap) {
+            var maxIterations = 20;
+            var iteration = 0;
+            while (iteration < maxIterations && checkVerticalOverflow()) {
+                fontSize = Math.max(fontSize * 0.9, 8); // Reduce by 10%, min 8pt
+                renderCharsWithFontSize(fontSize, shouldWrap, forEachSegment, text);
+                iteration++;
+            }
+        }
+
+        // Ignore the placeholder space (typing indicator).
+        if (text === ' ') {
+            text = '';
+        }
+
+        // Don't jump the cursor to the end
+        if (inputField.value !== text) {
+            inputField.value = text;
+        }
+        updateFragment(text);
+        updateTitle(text);
+    }
+
+    function renderCharsWithFontSize(fontSize, shouldWrap, forEachSegment, text) {
+        clearChars();
+
+        // Set wrapping behavior on container
+        if (shouldWrap) {
+            textDiv.style.maxWidth = '90vw';
+        } else {
+            textDiv.style.maxWidth = 'none';
+        }
 
         forEachSegment(function(seg) {
             var charbox = charboxTemplate.content.cloneNode(true);
             var charElem = charbox.querySelector('.char');
-            charElem.style.fontSize = fontSize + 'vw';
+            charElem.style.fontSize = fontSize + 'pt';
 
             if (seg !== ' ') {
                 charElem.textContent = seg;
@@ -108,18 +163,13 @@ window.addEventListener('DOMContentLoaded', function() {
 
             textDiv.appendChild(charbox);
         });
+    }
 
-        // Ignore the placeholder space (typing indicator).
-        if (text === ' ') {
-            text = '';
-        }
-
-        // Don't jump the cursor to the end
-        if (inputField.value !== text) {
-            inputField.value = text;
-        }
-        updateFragment(text);
-        updateTitle(text);
+    function checkVerticalOverflow() {
+        var viewportHeight = window.innerHeight;
+        var textRect = textDiv.getBoundingClientRect();
+        // Add some padding for comfort
+        return textRect.height > (viewportHeight * 0.8);
     }
 
     function onInput(evt) {

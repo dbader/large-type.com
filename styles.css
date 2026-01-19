@@ -178,7 +178,6 @@ input::-webkit-input-placeholder {
     flex-direction: column;
     float: left;
     font-family: var(--display-font);
-    font-size: 10vw;
 }
 
 .text li .number {
