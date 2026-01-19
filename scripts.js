@@ -246,22 +246,39 @@ window.addEventListener('DOMContentLoaded', function() {
         }
 
         var images = [];
-        var extensions = ['png', 'jpg', 'jpeg', 'gif', 'webp', 'svg'];
+        // Prioritize .svg as it's the most common format in this project
+        var extensions = ['svg', 'png', 'jpg', 'jpeg', 'gif', 'webp'];
+        var foundExtension = null;
 
-        // Check for word.ext (e.g., dog.png, dog.jpg)
+        // Check for word.ext (e.g., dog.svg, dog.png)
         for (var ext of extensions) {
             var url = 'words/' + lowerWord + '.' + ext;
             if (await imageExists(url)) {
                 images.push(url);
+                foundExtension = ext;
+                break; // Once we find the base image, use its extension for variations
             }
         }
 
-        // Check for word-N.ext (e.g., dog-1.png, dog-2.jpg)
-        for (var i = 1; i <= 10; i++) { // Check up to 10 variations
-            for (var ext of extensions) {
-                var url = 'words/' + lowerWord + '-' + i + '.' + ext;
+        // Check for word-N.ext (e.g., dog-1.svg, dog-2.svg)
+        // Only check variations with the extension we found, or all extensions if no base found
+        if (foundExtension) {
+            // If we found a base image, only check variations with the same extension
+            for (var i = 1; i <= 3; i++) { // Check up to 3 variations
+                var url = 'words/' + lowerWord + '-' + i + '.' + foundExtension;
                 if (await imageExists(url)) {
                     images.push(url);
+                }
+            }
+        } else {
+            // If no base image found, do a quick check for numbered variations
+            for (var i = 1; i <= 3; i++) {
+                for (var ext of extensions) {
+                    var url = 'words/' + lowerWord + '-' + i + '.' + ext;
+                    if (await imageExists(url)) {
+                        images.push(url);
+                        break; // Move to next number once we find one
+                    }
                 }
             }
         }
