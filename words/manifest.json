@@ -83,10 +83,8 @@
   "day-svg": [
     "words/day.svg"
   ],
-  "dog-1-svg": [
-    "words/dog-1.svg"
-  ],
   "dog-svg": [
+    "words/dog-1.svg",
     "words/dog.svg"
   ],
   "doll-svg": [
