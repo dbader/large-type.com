@@ -14,7 +14,7 @@
     --text-shadow-color: #aaa;
     --input-color: #ccc;
 
-    --display-font: 'Comic Sans MS', 'Century Gothic', 'Trebuchet MS', Verdana, sans-serif;
+    --display-font: 'Atkinson Hyperlegible Mono', 'Courier New', Courier, monospace;
 }
 
 body.dark-mode {

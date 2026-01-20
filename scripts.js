@@ -355,15 +355,14 @@ window.addEventListener('DOMContentLoaded', function() {
     var manifestStatusEl = document.querySelector('#manifest-status');
 
     var fontFamilies = {
-        'comic': "'Comic Sans MS', 'Century Gothic', 'Trebuchet MS', Verdana, sans-serif",
-        'verdana': "Verdana, Geneva, 'DejaVu Sans', sans-serif",
-        'georgia': "Georgia, 'Times New Roman', serif",
-        'arial': "Arial, Helvetica, sans-serif",
-        'monospace': "'Courier New', Courier, monospace"
+        'atkinson': "'Atkinson Hyperlegible Mono', 'Courier New', Courier, monospace",
+        'indie': "'Indie Flower', cursive",
+        'cardo': "'Cardo', Georgia, 'Times New Roman', serif",
+        'birthstone': "'Birthstone', cursive"
     };
 
     function getFontPreference() {
-        return localStorage.getItem('display-font') || 'comic';
+        return localStorage.getItem('display-font') || 'atkinson';
     }
 
     function setFontPreference(fontKey) {
@@ -372,7 +371,7 @@ window.addEventListener('DOMContentLoaded', function() {
     }
 
     function applyFont(fontKey) {
-        var fontFamily = fontFamilies[fontKey] || fontFamilies['comic'];
+        var fontFamily = fontFamilies[fontKey] || fontFamilies['atkinson'];
         document.documentElement.style.setProperty('--display-font', fontFamily);
         fontSelect.value = fontKey;
     }
