@@ -11,6 +11,9 @@
   "apple": [
     "words/apple.svg"
   ],
+  "arctic": [
+    "words/arctic.jpg"
+  ],
   "augustin": [
     "words/augustin.png"
   ],
@@ -30,6 +33,8 @@
     "words/bath.svg"
   ],
   "bear": [
+    "words/bear-1.svg",
+    "words/bear-3.svg",
     "words/bear.svg"
   ],
   "bed": [
@@ -42,6 +47,7 @@
     "words/bees.jpg"
   ],
   "bell": [
+    "words/bell.jpg",
     "words/bell.svg"
   ],
   "bird": [
@@ -50,6 +56,9 @@
   "birthday": [
     "words/birthday.svg"
   ],
+  "blue": [
+    "words/blue.svg"
+  ],
   "boat": [
     "words/boat.svg"
   ],
@@ -57,6 +66,7 @@
     "words/book.svg"
   ],
   "box": [
+    "words/box.jpg",
     "words/box.svg"
   ],
   "boy": [
@@ -73,6 +83,9 @@
   ],
   "bruno": [
     "words/bruno.png"
+  ],
+  "bye": [
+    "words/bye.svg"
   ],
   "cake": [
     "words/cake.svg"
@@ -101,6 +114,9 @@
   "coat": [
     "words/coat.svg"
   ],
+  "coming": [
+    "words/coming.jpg"
+  ],
   "corn": [
     "words/corn.svg"
   ],
@@ -115,6 +131,7 @@
     "words/dog.svg"
   ],
   "doll": [
+    "words/doll.png",
     "words/doll.svg"
   ],
   "dolores": [
@@ -124,6 +141,7 @@
     "words/door.svg"
   ],
   "down": [
+    "words/down.jpg",
     "words/down.svg"
   ],
   "duck": [
@@ -172,7 +190,15 @@
     "words/garden.svg"
   ],
   "girl": [
+    "words/girl.gif",
     "words/girl.svg"
+  ],
+  "go": [
+    "words/go.png"
+  ],
+  "going": [
+    "words/going-1.jpg",
+    "words/going.jpg"
   ],
   "goodbye": [
     "words/goodbye.svg"
@@ -192,6 +218,12 @@
   "head": [
     "words/head.svg"
   ],
+  "heart": [
+    "words/heart-red.svg"
+  ],
+  "heat": [
+    "words/heat.jpg"
+  ],
   "hill": [
     "words/hill.svg"
   ],
@@ -204,6 +236,13 @@
   "house": [
     "words/house.svg"
   ],
+  "in": [
+    "words/in.jpg"
+  ],
+  "inside": [
+    "words/inside-1.jpg",
+    "words/inside.jpg"
+  ],
   "isabela": [
     "words/isabela.png"
   ],
@@ -215,6 +254,9 @@
   ],
   "kite": [
     "words/kite.svg"
+  ],
+  "kitten": [
+    "words/kitten.svg"
   ],
   "kitty": [
     "words/kitty.svg"
@@ -236,6 +278,9 @@
   ],
   "luisa": [
     "words/luisa.png"
+  ],
+  "mama": [
+    "words/mama.jpg"
   ],
   "man": [
     "words/man.svg"
@@ -279,8 +324,24 @@
   "night": [
     "words/night.svg"
   ],
+  "off": [
+    "words/off.jpg"
+  ],
   "olaf": [
     "words/olaf.gif"
+  ],
+  "on": [
+    "words/on.jpg"
+  ],
+  "orange": [
+    "words/orange.jpg"
+  ],
+  "out": [
+    "words/out-1.jpg",
+    "words/out.jpg"
+  ],
+  "outside": [
+    "words/outside.jpg"
   ],
   "paper": [
     "words/paper.svg"
@@ -297,6 +358,9 @@
   "pig": [
     "words/pig.svg"
   ],
+  "polar": [
+    "words/polar-bear.jpg"
+  ],
   "pooh": [
     "words/pooh-1.jpg",
     "words/pooh-2.jpg",
@@ -311,7 +375,11 @@
   "rain": [
     "words/rain.svg"
   ],
+  "red": [
+    "words/red.svg"
+  ],
   "right": [
+    "words/right.jpg",
     "words/right.svg"
   ],
   "ring": [
@@ -335,11 +403,17 @@
   "shoe": [
     "words/shoe.svg"
   ],
+  "side": [
+    "words/side.jpg"
+  ],
   "simea": [
     "words/simea.png"
   ],
   "sister": [
     "words/sister.svg"
+  ],
+  "sit": [
+    "words/sit.jpg"
   ],
   "snow": [
     "words/snow.svg"
@@ -351,6 +425,7 @@
     "words/squirrel.svg"
   ],
   "star": [
+    "words/star-red.svg",
     "words/star.svg"
   ],
   "stick": [
@@ -383,8 +458,15 @@
   "tree": [
     "words/tree.svg"
   ],
+  "truck": [
+    "words/truck.jpg"
+  ],
   "up": [
+    "words/up.jpg",
     "words/up.svg"
+  ],
+  "upside": [
+    "words/upside.jpg"
   ],
   "watch": [
     "words/watch.svg"
@@ -394,6 +476,9 @@
   ],
   "way": [
     "words/way.svg"
+  ],
+  "went": [
+    "words/went.jpg"
   ],
   "wind": [
     "words/wind.svg"

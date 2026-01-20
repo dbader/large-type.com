@@ -37,12 +37,10 @@ def generate_manifest():
             match = re.match(r'^([a-z]+)(?:-.*)?\.', filename.lower())
             if match:
                 base_word = match.group(1)
-                extension = file_path.suffix.lstrip('.')
 
-                # Create a unique key combining base word and extension
-                # This differentiates files like word.jpg and word.svg
-                # while grouping variants like dog.svg, dog-1.svg, dog-big.svg
-                key = f"{base_word}-{extension.lower()}"
+                # Group all images under the base word regardless of extension
+                # This groups files like dog.svg, dog-1.svg, dog.jpg under "dog"
+                key = base_word
 
                 # Add to manifest
                 if key not in manifest:
