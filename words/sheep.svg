@@ -1,15 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
-<ellipse cx="100" cy="105" rx="45" ry="30" fill="#fff" stroke="#000" stroke-width="2"/>
-    <circle cx="80" cy="85" r="20" fill="#fff" stroke="#000" stroke-width="2"/>
-    <circle cx="75" cy="82" r="15" fill="#000"/>
-    <circle cx="72" cy="80" r="3" fill="#fff"/>
-    <circle cx="85" cy="82" r="15" fill="#000"/>
-    <circle cx="82" cy="80" r="3" fill="#fff"/>
-    <circle cx="60" cy="95" r="12" fill="#fff" stroke="#000" stroke-width="2"/>
-    <circle cx="100" cy="95" r="12" fill="#fff" stroke="#000" stroke-width="2"/>
-    <circle cx="120" cy="100" r="12" fill="#fff" stroke="#000" stroke-width="2"/>
-    <rect x="70" y="130" width="10" height="30" fill="#000"/>
-    <rect x="90" y="130" width="10" height="30" fill="#000"/>
-    <rect x="110" y="130" width="10" height="30" fill="#000"/>
-    <rect x="130" y="130" width="10" height="30" fill="#000"/>
+<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+<svg width="800px" height="800px" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path opacity="0.503384" d="M307.795 113.457C300.305 85.8132 283.042 97.899 271.715 103.508C264.444 107.106 257.196 91.6284 240.179 102.154C232.543 106.88 233.954 119.688 231.069 121.592C220.905 128.296 214.447 119.609 210.061 136.964C208.837 141.802 220.962 152.755 216.454 150.526C209.545 147.105 197.979 135.237 189.053 138.771C183.288 141.055 173.917 146.599 168.959 150.526C167.041 152.045 167.5 157.941 165.305 156.855C151.478 150.011 147.697 138.789 130.596 152.333C124.395 157.245 124.911 175.738 117.81 172.223C103.804 165.291 90.8308 171.875 84.9256 189.402C80.6995 201.961 94.4846 213.536 93.1478 220.143C90.7698 231.903 80.0757 236.76 87.6695 251.789C97.1159 270.491 126.196 247.076 127.857 248.172C181.754 283.737 176.562 256.641 181.745 257.667C188.856 259.074 191.712 268.407 200.929 269.419C222.964 271.842 219.315 256.38 226.501 254.959C235.155 253.246 242.265 258.977 252.078 253.15C265.516 245.164 255.591 231.936 262.125 223.31C275.567 205.569 300.633 221.347 284.957 182.556C284.587 181.636 287.331 154.492 284.957 145.099C284.737 144.217 298.133 136.291 299.573 135.154C304.986 130.868 304.77 117.919 306.88 111.647" stroke="#000000" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M310.893 121.021C368.968 132.439 357.617 165.175 297.496 165.175" stroke="#000000" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M245.093 135.739C237.009 140.552 239.074 146.351 248.933 147.514" stroke="#000000" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M247.461 260.845C250.364 270.241 255.862 298.553 256.29 300.584" stroke="#000000" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M221.031 272.62C221.437 282.67 223.865 292.368 225.327 302.057" stroke="#000000" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M109.454 260.845C109.335 275.138 106.673 288.981 111.172 302.056" stroke="#000000" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M142.242 260.845C142.242 275.56 142.242 290.284 142.242 305" stroke="#000000" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+<path opacity="0.503384" d="M69.2173 208.538C45.5684 210.861 46.964 181.653 69.2173 179.232" stroke="#000000" stroke-opacity="0.9" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

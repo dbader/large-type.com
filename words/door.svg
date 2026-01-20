@@ -1,6 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
-<rect x="60" y="40" width="80" height="130" fill="#8b4513" stroke="#000" stroke-width="3"/>
-    <rect x="70" y="55" width="25" height="35" fill="#87ceeb" stroke="#000" stroke-width="2"/>
-    <rect x="105" y="55" width="25" height="35" fill="#87ceeb" stroke="#000" stroke-width="2"/>
-    <circle cx="125" cy="105" r="5" fill="#ffd700" stroke="#000" stroke-width="1"/>
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+<svg fill="#000000" width="800px" height="800px" viewBox="-13.22 0 122.88 122.88" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  style="enable-background:new 0 0 96.43 122.88" xml:space="preserve">
+
+<style type="text/css">.st0{fill-rule:evenodd;clip-rule:evenodd;}</style>
+
+<g>
+
+<path class="st0" d="M0,115.27h4.39V1.99V0h1.99h82.93h1.99v1.99v113.28h5.14v7.61H0V115.27L0,115.27z M13.88,8.32H81.8h0.83v0.83 v104.89h4.69V3.97H8.36v111.3h4.69V9.15V8.32H13.88L13.88,8.32z M15.94,114.04H75.1l-0.38-0.15l-27.76-3.79V33.9l32.79-20.66v-2.04 H15.94V114.04L15.94,114.04z M51.7,59.66l4.23-1.21v15.81l-4.23-1.53V59.66L51.7,59.66z"/>
+
+</g>
+
 </svg>
