@@ -1,6 +1,21 @@
 {
+  "abuela-png": [
+    "words/abuela.png"
+  ],
+  "anna-gif": [
+    "words/anna.gif"
+  ],
+  "antonio-png": [
+    "words/antonio.png"
+  ],
   "apple-svg": [
     "words/apple.svg"
+  ],
+  "arctic-jpg": [
+    "words/arctic.jpg"
+  ],
+  "augustin-png": [
+    "words/augustin.png"
   ],
   "baby-svg": [
     "words/baby.svg"
@@ -18,10 +33,21 @@
     "words/bath.svg"
   ],
   "bear-svg": [
+    "words/bear-1.svg",
+    "words/bear-3.svg",
     "words/bear.svg"
   ],
   "bed-svg": [
     "words/bed.svg"
+  ],
+  "bee-jpg": [
+    "words/bee.jpg"
+  ],
+  "bees-jpg": [
+    "words/bees.jpg"
+  ],
+  "bell-jpg": [
+    "words/bell.jpg"
   ],
   "bell-svg": [
     "words/bell.svg"
@@ -32,11 +58,17 @@
   "birthday-svg": [
     "words/birthday.svg"
   ],
+  "blue-svg": [
+    "words/blue.svg"
+  ],
   "boat-svg": [
     "words/boat.svg"
   ],
   "book-svg": [
     "words/book.svg"
+  ],
+  "box-jpg": [
+    "words/box.jpg"
   ],
   "box-svg": [
     "words/box.svg"
@@ -44,14 +76,26 @@
   "boy-svg": [
     "words/boy.svg"
   ],
+  "brb-jpg": [
+    "words/brb.jpg"
+  ],
   "bread-svg": [
     "words/bread.svg"
   ],
   "brother-svg": [
     "words/brother.svg"
   ],
+  "bruno-png": [
+    "words/bruno.png"
+  ],
+  "bye-svg": [
+    "words/bye.svg"
+  ],
   "cake-svg": [
     "words/cake.svg"
+  ],
+  "camilo-png": [
+    "words/camilo.png"
   ],
   "car-svg": [
     "words/car.svg"
@@ -74,6 +118,9 @@
   "coat-svg": [
     "words/coat.svg"
   ],
+  "coming-jpg": [
+    "words/coming.jpg"
+  ],
   "corn-svg": [
     "words/corn.svg"
   ],
@@ -87,17 +134,32 @@
     "words/dog-1.svg",
     "words/dog.svg"
   ],
+  "doll-png": [
+    "words/doll.png"
+  ],
   "doll-svg": [
     "words/doll.svg"
   ],
+  "dolores-png": [
+    "words/dolores.png"
+  ],
   "door-svg": [
     "words/door.svg"
+  ],
+  "down-jpg": [
+    "words/down.jpg"
+  ],
+  "down-svg": [
+    "words/down.svg"
   ],
   "duck-svg": [
     "words/duck.svg"
   ],
   "egg-svg": [
     "words/egg.svg"
+  ],
+  "elsa-gif": [
+    "words/elsa.gif"
   ],
   "eye-svg": [
     "words/eye.svg"
@@ -113,6 +175,9 @@
   ],
   "feet-svg": [
     "words/feet.svg"
+  ],
+  "felix-png": [
+    "words/felix.png"
   ],
   "fire-svg": [
     "words/fire.svg"
@@ -132,8 +197,18 @@
   "garden-svg": [
     "words/garden.svg"
   ],
+  "girl-gif": [
+    "words/girl.gif"
+  ],
   "girl-svg": [
     "words/girl.svg"
+  ],
+  "go-png": [
+    "words/go.png"
+  ],
+  "going-jpg": [
+    "words/going-1.jpg",
+    "words/going.jpg"
   ],
   "goodbye-svg": [
     "words/goodbye.svg"
@@ -153,6 +228,12 @@
   "head-svg": [
     "words/head.svg"
   ],
+  "heart-svg": [
+    "words/heart-red.svg"
+  ],
+  "heat-jpg": [
+    "words/heat.jpg"
+  ],
   "hill-svg": [
     "words/hill.svg"
   ],
@@ -165,11 +246,36 @@
   "house-svg": [
     "words/house.svg"
   ],
+  "in-jpg": [
+    "words/in.jpg"
+  ],
+  "inside-jpg": [
+    "words/inside-1.jpg",
+    "words/inside.jpg"
+  ],
+  "isabela-png": [
+    "words/isabela.png"
+  ],
+  "julieta-png": [
+    "words/julieta.png"
+  ],
+  "kele-png": [
+    "words/kele.png"
+  ],
   "kite-svg": [
     "words/kite.svg"
   ],
+  "kitten-svg": [
+    "words/kitten.svg"
+  ],
   "kitty-svg": [
     "words/kitty.svg"
+  ],
+  "kristoff-gif": [
+    "words/kristoff.gif"
+  ],
+  "left-svg": [
+    "words/left.svg"
   ],
   "leg-svg": [
     "words/leg.svg"
@@ -177,8 +283,20 @@
   "letter-svg": [
     "words/letter.svg"
   ],
+  "loto-png": [
+    "words/loto.png"
+  ],
+  "luisa-png": [
+    "words/luisa.png"
+  ],
+  "mama-jpg": [
+    "words/mama.jpg"
+  ],
   "man-svg": [
     "words/man.svg"
+  ],
+  "maui-png": [
+    "words/maui.png"
   ],
   "men-svg": [
     "words/men.svg"
@@ -186,8 +304,17 @@
   "milk-svg": [
     "words/milk.svg"
   ],
+  "mirabel-png": [
+    "words/mirabel.png"
+  ],
+  "moana-png": [
+    "words/moana.png"
+  ],
   "money-svg": [
     "words/money.svg"
+  ],
+  "moni-png": [
+    "words/moni.png"
   ],
   "moon-svg": [
     "words/moon.svg"
@@ -207,11 +334,33 @@
   "night-svg": [
     "words/night.svg"
   ],
+  "off-jpg": [
+    "words/off.jpg"
+  ],
+  "olaf-gif": [
+    "words/olaf.gif"
+  ],
+  "on-jpg": [
+    "words/on.jpg"
+  ],
+  "orange-jpg": [
+    "words/orange.jpg"
+  ],
+  "out-jpg": [
+    "words/out-1.jpg",
+    "words/out.jpg"
+  ],
+  "outside-jpg": [
+    "words/outside.jpg"
+  ],
   "paper-svg": [
     "words/paper.svg"
   ],
   "party-svg": [
     "words/party.svg"
+  ],
+  "pepa-png": [
+    "words/pepa.png"
   ],
   "picture-svg": [
     "words/picture.svg"
@@ -219,11 +368,31 @@
   "pig-svg": [
     "words/pig.svg"
   ],
+  "polar-jpg": [
+    "words/polar-bear.jpg"
+  ],
+  "pooh-jpg": [
+    "words/pooh-1.jpg",
+    "words/pooh-2.jpg",
+    "words/pooh-3.jpg"
+  ],
+  "pua-png": [
+    "words/pua.png"
+  ],
   "rabbit-svg": [
     "words/rabbit.svg"
   ],
   "rain-svg": [
     "words/rain.svg"
+  ],
+  "red-svg": [
+    "words/red.svg"
+  ],
+  "right-jpg": [
+    "words/right.jpg"
+  ],
+  "right-svg": [
+    "words/right.svg"
   ],
   "ring-svg": [
     "words/ring.svg"
@@ -246,8 +415,17 @@
   "shoe-svg": [
     "words/shoe.svg"
   ],
+  "side-jpg": [
+    "words/side.jpg"
+  ],
+  "simea-png": [
+    "words/simea.png"
+  ],
   "sister-svg": [
     "words/sister.svg"
+  ],
+  "sit-jpg": [
+    "words/sit.jpg"
   ],
   "snow-svg": [
     "words/snow.svg"
@@ -259,6 +437,7 @@
     "words/squirrel.svg"
   ],
   "star-svg": [
+    "words/star-red.svg",
     "words/star.svg"
   ],
   "stick-svg": [
@@ -269,6 +448,9 @@
   ],
   "sun-svg": [
     "words/sun.svg"
+  ],
+  "sven-png": [
+    "words/sven.png"
   ],
   "table-svg": [
     "words/table.svg"
@@ -288,6 +470,18 @@
   "tree-svg": [
     "words/tree.svg"
   ],
+  "truck-jpg": [
+    "words/truck.jpg"
+  ],
+  "up-jpg": [
+    "words/up.jpg"
+  ],
+  "up-svg": [
+    "words/up.svg"
+  ],
+  "upside-jpg": [
+    "words/upside.jpg"
+  ],
   "watch-svg": [
     "words/watch.svg"
   ],
@@ -296,6 +490,9 @@
   ],
   "way-svg": [
     "words/way.svg"
+  ],
+  "went-jpg": [
+    "words/went.jpg"
   ],
   "wind-svg": [
     "words/wind.svg"
