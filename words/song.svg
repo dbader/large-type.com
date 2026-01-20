@@ -1,14 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
-<line x1="60" y1="140" x2="60" y2="160" stroke="#000" stroke-width="2"/>
-    <line x1="60" y1="160" x2="140" y2="160" stroke="#000" stroke-width="2"/>
-    <line x1="80" y1="140" x2="80" y2="160" stroke="#000" stroke-width="2"/>
-    <line x1="100" y1="140" x2="100" y2="160" stroke="#000" stroke-width="2"/>
-    <line x1="120" y1="140" x2="120" y2="160" stroke="#000" stroke-width="2"/>
-    <line x1="140" y1="140" x2="140" y2="160" stroke="#000" stroke-width="2"/>
-    <ellipse cx="55" cy="110" rx="8" ry="6" fill="#000"/>
-    <rect x="63" y="70" width="3" height="40" fill="#000"/>
-    <ellipse cx="75" cy="120" rx="8" ry="6" fill="#000"/>
-    <rect x="83" y="90" width="3" height="30" fill="#000"/>
-    <circle cx="100" cy="95" r="5" fill="#4169e1"/>
-    <path d="M 70 80 Q 90 70 110 80" stroke="#000" stroke-width="2" fill="none"/>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+<svg fill="#000000" width="800px" height="800px" viewBox="0 0 32.001 32.001" xmlns="http://www.w3.org/2000/svg">
+  <g id="Group_5" data-name="Group 5" transform="translate(-670.002 -465.694)">
+    <circle id="Ellipse_4" data-name="Ellipse 4" cx="6" cy="6" r="6" transform="translate(670.002 485.695)"/>
+    <circle id="Ellipse_5" data-name="Ellipse 5" cx="5" cy="5" r="5" transform="translate(692.002 483.695)"/>
+    <rect id="Rectangle_65" data-name="Rectangle 65" width="4" height="15.998" transform="translate(670.002 474.696)"/>
+    <rect id="Rectangle_66" data-name="Rectangle 66" width="4" height="15.998" transform="translate(692.002 472.696)"/>
+    <path id="Path_396" data-name="Path 396" d="M692,465.694l-18,2a4,4,0,0,0-4,4v4a4,4,0,0,0,4,4l18-2a4,4,0,0,0,4-4v-4A4,4,0,0,0,692,465.694Zm0,8-18,2v-4l18-2Z"/>
+  </g>
 </svg>

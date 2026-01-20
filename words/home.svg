@@ -1,8 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
-<path d="M 100 40 L 50 90 L 50 160 L 150 160 L 150 90 Z" fill="#ffff00" stroke="#000" stroke-width="2"/>
-    <rect x="85" y="110" width="30" height="50" fill="#8b4513" stroke="#000" stroke-width="2"/>
-    <rect x="65" y="100" width="25" height="25" fill="#87ceeb" stroke="#000" stroke-width="2"/>
-    <line x1="77.5" y1="100" x2="77.5" y2="125" stroke="#000" stroke-width="2"/>
-    <line x1="65" y1="112.5" x2="90" y2="112.5" stroke="#000" stroke-width="2"/>
-    <path d="M 40 90 L 100 30 L 160 90" fill="#ff0000" stroke="#000" stroke-width="2"/>
+<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+<svg width="800px" height="800px" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M8 0L0 6V8H1V15H4V10H7V15H15V8H16V6L14 4.5V1H11V2.25L8 0ZM9 10H12V13H9V10Z" fill="#000000"/>
 </svg>

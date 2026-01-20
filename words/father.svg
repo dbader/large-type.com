@@ -1,11 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
-<circle cx="100" cy="55" r="22" fill="#ffd4a3" stroke="#000" stroke-width="2"/>
-    <circle cx="93" cy="52" r="3" fill="#000"/>
-    <circle cx="107" cy="52" r="3" fill="#000"/>
-    <path d="M 92 63 Q 100 67 108 63" stroke="#000" stroke-width="2" fill="none"/>
-    <rect x="78" y="82" width="44" height="48" fill="#4169e1" stroke="#000" stroke-width="2"/>
-    <rect x="62" y="87" width="16" height="35" fill="#4169e1" stroke="#000" stroke-width="2"/>
-    <rect x="122" y="87" width="16" height="35" fill="#4169e1" stroke="#000" stroke-width="2"/>
-    <rect x="78" y="130" width="18" height="35" fill="#2c5282" stroke="#000" stroke-width="2"/>
-    <rect x="104" y="130" width="18" height="35" fill="#2c5282" stroke="#000" stroke-width="2"/>
+<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+<svg width="800px" height="800px" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M158.186 56.5617C163.281 51.5499 167.152 49.0525 174.323 47.0182C204.6 38.4289 209.62 86.6339 186.741 99.6139C157.269 116.333 135.434 78.8876 156.184 61.7161" stroke="#000000" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M225.861 67.4029C228.826 60.4699 239.529 55.2555 247.285 57.5476C283.357 68.2067 267.528 110.028 236.324 106.826C221.148 105.268 218.385 82.6361 226.359 75.4672" stroke="#000000" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M151.374 136.4C148.7 141.772 161.099 221.352 165.612 227.017C166.776 228.479 210.42 228.167 215 227.017" stroke="#000000" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M149.75 141C150.609 142.954 131.898 198.749 133.051 198.978C137.896 199.943 168.993 168.348 175 165.356" stroke="#000000" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M249.493 119.227C255.484 133.865 241.743 161.317 240.796 168.242C240.486 170.502 231.512 172.271 227.832 171.966C223.214 171.582 213.628 171.405 210.164 168.242" stroke="#000000" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M241 116C235.604 127.228 211.212 150.343 198 143.879" stroke="#000000" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M213.25 175C213.25 198.12 213.25 207.077 213.25 225" stroke="#000000" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M239 171C229.253 175.992 229.573 191.38 216 195" stroke="#000000" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M213.089 228C213.089 236.406 213.089 244.812 213.089 253.219C213.089 276.988 214.849 300.596 213.995 324.371C213.751 331.186 212.945 337.543 211.731 344.186C211.345 346.3 208.681 358.361 210.827 354.093H221" stroke="#000000" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M167 229C169.708 260.558 175.844 291.898 176.947 323.607C177.321 334.358 175.591 344.642 175.591 354.993L167 355" stroke="#000000" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
