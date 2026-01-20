@@ -127,12 +127,10 @@
     "words/day.svg"
   ],
   "dog": [
-    "words/dog-1.svg",
     "words/dog.svg"
   ],
   "doll": [
-    "words/doll.png",
-    "words/doll.svg"
+    "words/doll.png"
   ],
   "dolores": [
     "words/dolores.png"
@@ -177,21 +175,14 @@
   "fish": [
     "words/fish.svg"
   ],
-  "floor": [
-    "words/floor.svg"
-  ],
   "flower": [
     "words/flower.svg"
-  ],
-  "game": [
-    "words/game.svg"
   ],
   "garden": [
     "words/garden.svg"
   ],
   "girl": [
-    "words/girl.gif",
-    "words/girl.svg"
+    "words/girl.gif"
   ],
   "go": [
     "words/go.png"
@@ -206,17 +197,11 @@
   "grass": [
     "words/grass.svg"
   ],
-  "ground": [
-    "words/ground.svg"
-  ],
   "hand": [
     "words/hand.svg"
   ],
   "hat": [
     "words/hat.svg"
-  ],
-  "head": [
-    "words/head.svg"
   ],
   "heart": [
     "words/heart-red.svg"
@@ -267,9 +252,6 @@
   "left": [
     "words/left.svg"
   ],
-  "leg": [
-    "words/leg.svg"
-  ],
   "letter": [
     "words/letter.svg"
   ],
@@ -288,9 +270,6 @@
   "maui": [
     "words/maui.png"
   ],
-  "men": [
-    "words/men.svg"
-  ],
   "milk": [
     "words/milk.svg"
   ],
@@ -308,15 +287,6 @@
   ],
   "moon": [
     "words/moon.svg"
-  ],
-  "morning": [
-    "words/morning.svg"
-  ],
-  "mother": [
-    "words/mother.svg"
-  ],
-  "name": [
-    "words/name.svg"
   ],
   "nest": [
     "words/nest.svg"
@@ -343,17 +313,11 @@
   "outside": [
     "words/outside.jpg"
   ],
-  "paper": [
-    "words/paper.svg"
-  ],
   "party": [
     "words/party.svg"
   ],
   "pepa": [
     "words/pepa.png"
-  ],
-  "picture": [
-    "words/picture.svg"
   ],
   "pig": [
     "words/pig.svg"
@@ -385,9 +349,6 @@
   "ring": [
     "words/ring.svg"
   ],
-  "robin": [
-    "words/robin.svg"
-  ],
   "santa": [
     "words/santa.svg"
   ],
@@ -408,9 +369,6 @@
   ],
   "simea": [
     "words/simea.png"
-  ],
-  "sister": [
-    "words/sister.svg"
   ],
   "sit": [
     "words/sit.jpg"
@@ -440,17 +398,8 @@
   "sven": [
     "words/sven.png"
   ],
-  "table": [
-    "words/table.svg"
-  ],
-  "thing": [
-    "words/thing.svg"
-  ],
   "time": [
     "words/time.svg"
-  ],
-  "top": [
-    "words/top.svg"
   ],
   "toy": [
     "words/toy.svg"
@@ -473,9 +422,6 @@
   ],
   "water": [
     "words/water.svg"
-  ],
-  "way": [
-    "words/way.svg"
   ],
   "went": [
     "words/went.jpg"
