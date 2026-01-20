@@ -1,506 +1,492 @@
 {
-  "abuela-png": [
+  "abuela": [
     "words/abuela.png"
   ],
-  "anna-gif": [
+  "anna": [
     "words/anna.gif"
   ],
-  "antonio-png": [
+  "antonio": [
     "words/antonio.png"
   ],
-  "apple-svg": [
+  "apple": [
     "words/apple.svg"
   ],
-  "arctic-jpg": [
+  "arctic": [
     "words/arctic.jpg"
   ],
-  "augustin-png": [
+  "augustin": [
     "words/augustin.png"
   ],
-  "baby-svg": [
+  "baby": [
     "words/baby.svg"
   ],
-  "back-svg": [
+  "back": [
     "words/back.svg"
   ],
-  "ball-svg": [
+  "ball": [
     "words/ball.svg"
   ],
-  "bat-svg": [
+  "bat": [
     "words/bat.svg"
   ],
-  "bath-svg": [
+  "bath": [
     "words/bath.svg"
   ],
-  "bear-svg": [
+  "bear": [
     "words/bear-1.svg",
     "words/bear-3.svg",
     "words/bear.svg"
   ],
-  "bed-svg": [
+  "bed": [
     "words/bed.svg"
   ],
-  "bee-jpg": [
+  "bee": [
     "words/bee.jpg"
   ],
-  "bees-jpg": [
+  "bees": [
     "words/bees.jpg"
   ],
-  "bell-jpg": [
-    "words/bell.jpg"
-  ],
-  "bell-svg": [
+  "bell": [
+    "words/bell.jpg",
     "words/bell.svg"
   ],
-  "bird-svg": [
+  "bird": [
     "words/bird.svg"
   ],
-  "birthday-svg": [
+  "birthday": [
     "words/birthday.svg"
   ],
-  "blue-svg": [
+  "blue": [
     "words/blue.svg"
   ],
-  "boat-svg": [
+  "boat": [
     "words/boat.svg"
   ],
-  "book-svg": [
+  "book": [
     "words/book.svg"
   ],
-  "box-jpg": [
-    "words/box.jpg"
-  ],
-  "box-svg": [
+  "box": [
+    "words/box.jpg",
     "words/box.svg"
   ],
-  "boy-svg": [
+  "boy": [
     "words/boy.svg"
   ],
-  "brb-jpg": [
+  "brb": [
     "words/brb.jpg"
   ],
-  "bread-svg": [
+  "bread": [
     "words/bread.svg"
   ],
-  "brother-svg": [
+  "brother": [
     "words/brother.svg"
   ],
-  "bruno-png": [
+  "bruno": [
     "words/bruno.png"
   ],
-  "bye-svg": [
+  "bye": [
     "words/bye.svg"
   ],
-  "cake-svg": [
+  "cake": [
     "words/cake.svg"
   ],
-  "camilo-png": [
+  "camilo": [
     "words/camilo.png"
   ],
-  "car-svg": [
+  "car": [
     "words/car.svg"
   ],
-  "cat-svg": [
+  "cat": [
     "words/cat.svg"
   ],
-  "chair-svg": [
+  "chair": [
     "words/chair.svg"
   ],
-  "chicken-svg": [
+  "chicken": [
     "words/chicken.svg"
   ],
-  "children-svg": [
+  "children": [
     "words/children.svg"
   ],
-  "christmas-svg": [
+  "christmas": [
     "words/christmas.svg"
   ],
-  "coat-svg": [
+  "coat": [
     "words/coat.svg"
   ],
-  "coming-jpg": [
+  "coming": [
     "words/coming.jpg"
   ],
-  "corn-svg": [
+  "corn": [
     "words/corn.svg"
   ],
-  "cow-svg": [
+  "cow": [
     "words/cow.svg"
   ],
-  "day-svg": [
+  "day": [
     "words/day.svg"
   ],
-  "dog-svg": [
+  "dog": [
     "words/dog-1.svg",
     "words/dog.svg"
   ],
-  "doll-png": [
-    "words/doll.png"
-  ],
-  "doll-svg": [
+  "doll": [
+    "words/doll.png",
     "words/doll.svg"
   ],
-  "dolores-png": [
+  "dolores": [
     "words/dolores.png"
   ],
-  "door-svg": [
+  "door": [
     "words/door.svg"
   ],
-  "down-jpg": [
-    "words/down.jpg"
-  ],
-  "down-svg": [
+  "down": [
+    "words/down.jpg",
     "words/down.svg"
   ],
-  "duck-svg": [
+  "duck": [
     "words/duck.svg"
   ],
-  "egg-svg": [
+  "egg": [
     "words/egg.svg"
   ],
-  "elsa-gif": [
+  "elsa": [
     "words/elsa.gif"
   ],
-  "eye-svg": [
+  "eye": [
     "words/eye.svg"
   ],
-  "farm-svg": [
+  "farm": [
     "words/farm.svg"
   ],
-  "farmer-svg": [
+  "farmer": [
     "words/farmer.svg"
   ],
-  "father-svg": [
+  "father": [
     "words/father.svg"
   ],
-  "feet-svg": [
+  "feet": [
     "words/feet.svg"
   ],
-  "felix-png": [
+  "felix": [
     "words/felix.png"
   ],
-  "fire-svg": [
+  "fire": [
     "words/fire.svg"
   ],
-  "fish-svg": [
+  "fish": [
     "words/fish.svg"
   ],
-  "floor-svg": [
+  "floor": [
     "words/floor.svg"
   ],
-  "flower-svg": [
+  "flower": [
     "words/flower.svg"
   ],
-  "game-svg": [
+  "game": [
     "words/game.svg"
   ],
-  "garden-svg": [
+  "garden": [
     "words/garden.svg"
   ],
-  "girl-gif": [
-    "words/girl.gif"
-  ],
-  "girl-svg": [
+  "girl": [
+    "words/girl.gif",
     "words/girl.svg"
   ],
-  "go-png": [
+  "go": [
     "words/go.png"
   ],
-  "going-jpg": [
+  "going": [
     "words/going-1.jpg",
     "words/going.jpg"
   ],
-  "goodbye-svg": [
+  "goodbye": [
     "words/goodbye.svg"
   ],
-  "grass-svg": [
+  "grass": [
     "words/grass.svg"
   ],
-  "ground-svg": [
+  "ground": [
     "words/ground.svg"
   ],
-  "hand-svg": [
+  "hand": [
     "words/hand.svg"
   ],
-  "hat-svg": [
+  "hat": [
     "words/hat.svg"
   ],
-  "head-svg": [
+  "head": [
     "words/head.svg"
   ],
-  "heart-svg": [
+  "heart": [
     "words/heart-red.svg"
   ],
-  "heat-jpg": [
+  "heat": [
     "words/heat.jpg"
   ],
-  "hill-svg": [
+  "hill": [
     "words/hill.svg"
   ],
-  "home-svg": [
+  "home": [
     "words/home.svg"
   ],
-  "horse-svg": [
+  "horse": [
     "words/horse.svg"
   ],
-  "house-svg": [
+  "house": [
     "words/house.svg"
   ],
-  "in-jpg": [
+  "in": [
     "words/in.jpg"
   ],
-  "inside-jpg": [
+  "inside": [
     "words/inside-1.jpg",
     "words/inside.jpg"
   ],
-  "isabela-png": [
+  "isabela": [
     "words/isabela.png"
   ],
-  "julieta-png": [
+  "julieta": [
     "words/julieta.png"
   ],
-  "kele-png": [
+  "kele": [
     "words/kele.png"
   ],
-  "kite-svg": [
+  "kite": [
     "words/kite.svg"
   ],
-  "kitten-svg": [
+  "kitten": [
     "words/kitten.svg"
   ],
-  "kitty-svg": [
+  "kitty": [
     "words/kitty.svg"
   ],
-  "kristoff-gif": [
+  "kristoff": [
     "words/kristoff.gif"
   ],
-  "left-svg": [
+  "left": [
     "words/left.svg"
   ],
-  "leg-svg": [
+  "leg": [
     "words/leg.svg"
   ],
-  "letter-svg": [
+  "letter": [
     "words/letter.svg"
   ],
-  "loto-png": [
+  "loto": [
     "words/loto.png"
   ],
-  "luisa-png": [
+  "luisa": [
     "words/luisa.png"
   ],
-  "mama-jpg": [
+  "mama": [
     "words/mama.jpg"
   ],
-  "man-svg": [
+  "man": [
     "words/man.svg"
   ],
-  "maui-png": [
+  "maui": [
     "words/maui.png"
   ],
-  "men-svg": [
+  "men": [
     "words/men.svg"
   ],
-  "milk-svg": [
+  "milk": [
     "words/milk.svg"
   ],
-  "mirabel-png": [
+  "mirabel": [
     "words/mirabel.png"
   ],
-  "moana-png": [
+  "moana": [
     "words/moana.png"
   ],
-  "money-svg": [
+  "money": [
     "words/money.svg"
   ],
-  "moni-png": [
+  "moni": [
     "words/moni.png"
   ],
-  "moon-svg": [
+  "moon": [
     "words/moon.svg"
   ],
-  "morning-svg": [
+  "morning": [
     "words/morning.svg"
   ],
-  "mother-svg": [
+  "mother": [
     "words/mother.svg"
   ],
-  "name-svg": [
+  "name": [
     "words/name.svg"
   ],
-  "nest-svg": [
+  "nest": [
     "words/nest.svg"
   ],
-  "night-svg": [
+  "night": [
     "words/night.svg"
   ],
-  "off-jpg": [
+  "off": [
     "words/off.jpg"
   ],
-  "olaf-gif": [
+  "olaf": [
     "words/olaf.gif"
   ],
-  "on-jpg": [
+  "on": [
     "words/on.jpg"
   ],
-  "orange-jpg": [
+  "orange": [
     "words/orange.jpg"
   ],
-  "out-jpg": [
+  "out": [
     "words/out-1.jpg",
     "words/out.jpg"
   ],
-  "outside-jpg": [
+  "outside": [
     "words/outside.jpg"
   ],
-  "paper-svg": [
+  "paper": [
     "words/paper.svg"
   ],
-  "party-svg": [
+  "party": [
     "words/party.svg"
   ],
-  "pepa-png": [
+  "pepa": [
     "words/pepa.png"
   ],
-  "picture-svg": [
+  "picture": [
     "words/picture.svg"
   ],
-  "pig-svg": [
+  "pig": [
     "words/pig.svg"
   ],
-  "polar-jpg": [
+  "polar": [
     "words/polar-bear.jpg"
   ],
-  "pooh-jpg": [
+  "pooh": [
     "words/pooh-1.jpg",
     "words/pooh-2.jpg",
     "words/pooh-3.jpg"
   ],
-  "pua-png": [
+  "pua": [
     "words/pua.png"
   ],
-  "rabbit-svg": [
+  "rabbit": [
     "words/rabbit.svg"
   ],
-  "rain-svg": [
+  "rain": [
     "words/rain.svg"
   ],
-  "red-svg": [
+  "red": [
     "words/red.svg"
   ],
-  "right-jpg": [
-    "words/right.jpg"
-  ],
-  "right-svg": [
+  "right": [
+    "words/right.jpg",
     "words/right.svg"
   ],
-  "ring-svg": [
+  "ring": [
     "words/ring.svg"
   ],
-  "robin-svg": [
+  "robin": [
     "words/robin.svg"
   ],
-  "santa-svg": [
+  "santa": [
     "words/santa.svg"
   ],
-  "school-svg": [
+  "school": [
     "words/school.svg"
   ],
-  "seed-svg": [
+  "seed": [
     "words/seed.svg"
   ],
-  "sheep-svg": [
+  "sheep": [
     "words/sheep.svg"
   ],
-  "shoe-svg": [
+  "shoe": [
     "words/shoe.svg"
   ],
-  "side-jpg": [
+  "side": [
     "words/side.jpg"
   ],
-  "simea-png": [
+  "simea": [
     "words/simea.png"
   ],
-  "sister-svg": [
+  "sister": [
     "words/sister.svg"
   ],
-  "sit-jpg": [
+  "sit": [
     "words/sit.jpg"
   ],
-  "snow-svg": [
+  "snow": [
     "words/snow.svg"
   ],
-  "song-svg": [
+  "song": [
     "words/song.svg"
   ],
-  "squirrel-svg": [
+  "squirrel": [
     "words/squirrel.svg"
   ],
-  "star-svg": [
+  "star": [
     "words/star-red.svg",
     "words/star.svg"
   ],
-  "stick-svg": [
+  "stick": [
     "words/stick.svg"
   ],
-  "street-svg": [
+  "street": [
     "words/street.svg"
   ],
-  "sun-svg": [
+  "sun": [
     "words/sun.svg"
   ],
-  "sven-png": [
+  "sven": [
     "words/sven.png"
   ],
-  "table-svg": [
+  "table": [
     "words/table.svg"
   ],
-  "thing-svg": [
+  "thing": [
     "words/thing.svg"
   ],
-  "time-svg": [
+  "time": [
     "words/time.svg"
   ],
-  "top-svg": [
+  "top": [
     "words/top.svg"
   ],
-  "toy-svg": [
+  "toy": [
     "words/toy.svg"
   ],
-  "tree-svg": [
+  "tree": [
     "words/tree.svg"
   ],
-  "truck-jpg": [
+  "truck": [
     "words/truck.jpg"
   ],
-  "up-jpg": [
-    "words/up.jpg"
-  ],
-  "up-svg": [
+  "up": [
+    "words/up.jpg",
     "words/up.svg"
   ],
-  "upside-jpg": [
+  "upside": [
     "words/upside.jpg"
   ],
-  "watch-svg": [
+  "watch": [
     "words/watch.svg"
   ],
-  "water-svg": [
+  "water": [
     "words/water.svg"
   ],
-  "way-svg": [
+  "way": [
     "words/way.svg"
   ],
-  "went-jpg": [
+  "went": [
     "words/went.jpg"
   ],
-  "wind-svg": [
+  "wind": [
     "words/wind.svg"
   ],
-  "window-svg": [
+  "window": [
     "words/window.svg"
   ],
-  "wood-svg": [
+  "wood": [
     "words/wood.svg"
   ]
 }
