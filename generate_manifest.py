@@ -32,15 +32,18 @@ def generate_manifest():
         if file_path.is_file() and file_path.suffix.lower() in extensions:
             filename = file_path.name
 
-            # Extract the word name (handle both "word.ext" and "word-N.ext" formats)
-            match = re.match(r'^([a-z]+)(?:-\d+)?\.', filename.lower())
-            if match:
-                word = match.group(1)
+            # Use the full stem (filename without extension) as the base key
+            stem = file_path.stem
+            extension = file_path.suffix.lstrip('.')
 
-                # Add to manifest
-                if word not in manifest:
-                    manifest[word] = []
-                manifest[word].append(f"words/{filename}")
+            # Create a unique key combining stem and extension
+            # This differentiates files like word.jpg and word.svg
+            key = f"{stem.lower()}-{extension.lower()}"
+
+            # Add to manifest
+            if key not in manifest:
+                manifest[key] = []
+            manifest[key].append(f"words/{filename}")
 
     # Write manifest to file
     manifest_path = Path(__file__).parent / "words" / "manifest.json"
