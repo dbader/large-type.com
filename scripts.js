@@ -192,7 +192,7 @@ window.addEventListener('DOMContentLoaded', function() {
             charElem.style.fontSize = fontSize + 'pt';
 
             if (seg !== ' ') {
-                charElem.textContent = seg;
+                charElem.textContent = applyLetterCase(seg);
             } else {
                 charElem.innerHTML = '&nbsp;';
             }
@@ -377,6 +377,41 @@ window.addEventListener('DOMContentLoaded', function() {
         fontSelect.value = fontKey;
     }
 
+    // Letter case preference management
+    var caseSelect = document.querySelector('#case-select');
+
+    function getCasePreference() {
+        return localStorage.getItem('letter-case') || 'both';
+    }
+
+    function setCasePreference(caseKey) {
+        localStorage.setItem('letter-case', caseKey);
+        applyCasePreference(caseKey);
+    }
+
+    function applyCasePreference(caseKey) {
+        caseSelect.value = caseKey;
+        renderTextImmediate(); // Re-render text with new case
+    }
+
+    function applyLetterCase(character) {
+        var casePreference = getCasePreference();
+
+        // Only transform letters, not emoji, numbers, or symbols
+        if (!character.match(/\p{L}/iu)) {
+            return character;
+        }
+
+        if (casePreference === 'uppercase') {
+            return character.toUpperCase();
+        } else if (casePreference === 'lowercase') {
+            return character.toLowerCase();
+        } else {
+            // 'both' - return as typed
+            return character;
+        }
+    }
+
     function toggleSettingsModal() {
         settingsModal.classList.toggle('open');
         if (settingsModal.classList.contains('open')) {
@@ -398,12 +433,17 @@ window.addEventListener('DOMContentLoaded', function() {
         setFontPreference(evt.target.value);
     }, false);
 
+    caseSelect.addEventListener('change', function(evt) {
+        setCasePreference(evt.target.value);
+    }, false);
+
     reloadManifestBtn.addEventListener('click', function() {
         loadImageManifest(true); // true = show status messages
     }, false);
 
-    // Apply saved font preference on load
+    // Apply saved preferences on load
     applyFont(getFontPreference());
+    applyCasePreference(getCasePreference());
 
     // Prevent focus loss and problematic keys
     inputField.addEventListener('blur', function() {
