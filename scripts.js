@@ -223,52 +223,66 @@ window.addEventListener('DOMContentLoaded', function() {
     // Word Image Cards Feature
     var wordCardsContainer = document.querySelector('.word-cards-container');
     var wordCardTemplate = document.querySelector('#word-card-template');
-    var imageCache = {}; // Cache for available images
+    var imageManifest = null; // Manifest loaded from server
     var currentWordCards = []; // Track currently displayed word cards
 
-    // Check if an image file exists
-    async function imageExists(url) {
+    // Load the image manifest once on startup
+    async function loadImageManifest(showStatus) {
+        if (showStatus && manifestStatusEl) {
+            manifestStatusEl.textContent = 'Loading...';
+            manifestStatusEl.style.color = '#666';
+        }
+
         try {
-            const response = await fetch(url, { method: 'HEAD' });
-            return response.ok;
+            const response = await fetch('words/manifest.json?' + Date.now()); // Cache bust
+            if (response.ok) {
+                imageManifest = await response.json();
+                var wordCount = Object.keys(imageManifest).length;
+                console.log('Loaded image manifest with', wordCount, 'words');
+
+                if (showStatus && manifestStatusEl) {
+                    manifestStatusEl.textContent = 'Loaded ' + wordCount + ' words successfully';
+                    manifestStatusEl.style.color = '#28a745';
+
+                    // Re-render current word cards with new manifest
+                    renderWordCards();
+
+                    // Clear status after 3 seconds
+                    setTimeout(function() {
+                        manifestStatusEl.textContent = '';
+                    }, 3000);
+                }
+            } else {
+                console.error('Failed to load image manifest');
+                imageManifest = {}; // Empty manifest as fallback
+
+                if (showStatus && manifestStatusEl) {
+                    manifestStatusEl.textContent = 'Failed to load manifest';
+                    manifestStatusEl.style.color = '#dc3545';
+                }
+            }
         } catch (e) {
-            return false;
+            console.error('Error loading image manifest:', e);
+            imageManifest = {}; // Empty manifest as fallback
+
+            if (showStatus && manifestStatusEl) {
+                manifestStatusEl.textContent = 'Error loading manifest';
+                manifestStatusEl.style.color = '#dc3545';
+            }
         }
     }
 
-    // Find all available images for a word
-    async function findImagesForWord(word) {
+    // Find all available images for a word (instant lookup, no network requests)
+    function findImagesForWord(word) {
         var lowerWord = word.toLowerCase();
 
-        // Check cache first
-        if (imageCache[lowerWord]) {
-            return imageCache[lowerWord];
+        // Wait for manifest to load
+        if (imageManifest === null) {
+            return [];
         }
 
-        var images = [];
-        var extensions = ['png', 'jpg', 'jpeg', 'gif', 'webp', 'svg'];
-
-        // Check for word.ext (e.g., dog.png, dog.jpg)
-        for (var ext of extensions) {
-            var url = 'words/' + lowerWord + '.' + ext;
-            if (await imageExists(url)) {
-                images.push(url);
-            }
-        }
-
-        // Check for word-N.ext (e.g., dog-1.png, dog-2.jpg)
-        for (var i = 1; i <= 10; i++) { // Check up to 10 variations
-            for (var ext of extensions) {
-                var url = 'words/' + lowerWord + '-' + i + '.' + ext;
-                if (await imageExists(url)) {
-                    images.push(url);
-                }
-            }
-        }
-
-        // Cache the results
-        imageCache[lowerWord] = images;
-        return images;
+        // Simple lookup in manifest
+        return imageManifest[lowerWord] || [];
     }
 
     // Extract words from the current text
@@ -290,7 +304,7 @@ window.addEventListener('DOMContentLoaded', function() {
     }
 
     // Render word cards based on current text
-    async function renderWordCards() {
+    function renderWordCards() {
         var text = decodeURIComponent(location.hash.split('#')[1] || '');
         var words = extractWords(text);
 
@@ -299,7 +313,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
         // Process each word
         for (var word of words) {
-            var images = await findImagesForWord(word);
+            var images = findImagesForWord(word);
 
             if (images.length > 0) {
                 // Pick a random image from available options
@@ -337,6 +351,8 @@ window.addEventListener('DOMContentLoaded', function() {
     var settingsModal = document.querySelector('#settings-modal');
     var fontSelect = document.querySelector('#font-select');
     var closeSettingsBtn = document.querySelector('#close-settings');
+    var reloadManifestBtn = document.querySelector('#reload-manifest');
+    var manifestStatusEl = document.querySelector('#manifest-status');
 
     var fontFamilies = {
         'comic': "'Comic Sans MS', 'Century Gothic', 'Trebuchet MS', Verdana, sans-serif",
@@ -380,6 +396,10 @@ window.addEventListener('DOMContentLoaded', function() {
 
     fontSelect.addEventListener('change', function(evt) {
         setFontPreference(evt.target.value);
+    }, false);
+
+    reloadManifestBtn.addEventListener('click', function() {
+        loadImageManifest(true); // true = show status messages
     }, false);
 
     // Apply saved font preference on load
@@ -426,6 +446,9 @@ window.addEventListener('DOMContentLoaded', function() {
     if (!location.hash) {
         updateFragment(WELCOME_MSG);
     }
+
+    // Load image manifest on startup
+    loadImageManifest();
 
     // Use requestAnimationFrame to ensure layout has settled before initial render
     requestAnimationFrame(function() {
