@@ -227,19 +227,48 @@ window.addEventListener('DOMContentLoaded', function() {
     var currentWordCards = []; // Track currently displayed word cards
 
     // Load the image manifest once on startup
-    async function loadImageManifest() {
+    async function loadImageManifest(showStatus) {
+        if (showStatus && manifestStatusEl) {
+            manifestStatusEl.textContent = 'Loading...';
+            manifestStatusEl.style.color = '#666';
+        }
+
         try {
-            const response = await fetch('words/manifest.json');
+            const response = await fetch('words/manifest.json?' + Date.now()); // Cache bust
             if (response.ok) {
                 imageManifest = await response.json();
-                console.log('Loaded image manifest with', Object.keys(imageManifest).length, 'words');
+                var wordCount = Object.keys(imageManifest).length;
+                console.log('Loaded image manifest with', wordCount, 'words');
+
+                if (showStatus && manifestStatusEl) {
+                    manifestStatusEl.textContent = 'Loaded ' + wordCount + ' words successfully';
+                    manifestStatusEl.style.color = '#28a745';
+
+                    // Re-render current word cards with new manifest
+                    renderWordCards();
+
+                    // Clear status after 3 seconds
+                    setTimeout(function() {
+                        manifestStatusEl.textContent = '';
+                    }, 3000);
+                }
             } else {
                 console.error('Failed to load image manifest');
                 imageManifest = {}; // Empty manifest as fallback
+
+                if (showStatus && manifestStatusEl) {
+                    manifestStatusEl.textContent = 'Failed to load manifest';
+                    manifestStatusEl.style.color = '#dc3545';
+                }
             }
         } catch (e) {
             console.error('Error loading image manifest:', e);
             imageManifest = {}; // Empty manifest as fallback
+
+            if (showStatus && manifestStatusEl) {
+                manifestStatusEl.textContent = 'Error loading manifest';
+                manifestStatusEl.style.color = '#dc3545';
+            }
         }
     }
 
@@ -322,6 +351,8 @@ window.addEventListener('DOMContentLoaded', function() {
     var settingsModal = document.querySelector('#settings-modal');
     var fontSelect = document.querySelector('#font-select');
     var closeSettingsBtn = document.querySelector('#close-settings');
+    var reloadManifestBtn = document.querySelector('#reload-manifest');
+    var manifestStatusEl = document.querySelector('#manifest-status');
 
     var fontFamilies = {
         'comic': "'Comic Sans MS', 'Century Gothic', 'Trebuchet MS', Verdana, sans-serif",
@@ -365,6 +396,10 @@ window.addEventListener('DOMContentLoaded', function() {
 
     fontSelect.addEventListener('change', function(evt) {
         setFontPreference(evt.target.value);
+    }, false);
+
+    reloadManifestBtn.addEventListener('click', function() {
+        loadImageManifest(true); // true = show status messages
     }, false);
 
     // Apply saved font preference on load
