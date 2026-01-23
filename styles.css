@@ -274,7 +274,7 @@ input::-webkit-input-placeholder {
     max-width: 300px;
     min-height: 150px;
     min-width: 150px;
-    object-fit: cover;
+    object-fit: contain;
     width: 100%;
 }
 
