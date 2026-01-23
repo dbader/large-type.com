@@ -226,8 +226,45 @@ window.addEventListener('DOMContentLoaded', function() {
     var imageManifest = null; // Manifest loaded from server
     var currentWordCards = []; // Track currently displayed word cards
 
-    // List of most common English words (top 500)
+    // Color name to hex mapping
+    var colorMap = {
+        "red": "#FF0000",
+        "blue": "#0000FF",
+        "green": "#008000",
+        "yellow": "#FFD700",
+        "orange": "#FFA500",
+        "purple": "#800080",
+        "pink": "#FFC0CB",
+        "brown": "#8B4513",
+        "black": "#000000",
+        "white": "#FFFFFF",
+        "gray": "#808080",
+        "grey": "#808080",
+        "silver": "#C0C0C0",
+        "gold": "#FFD700",
+        "cyan": "#00FFFF",
+        "magenta": "#FF00FF",
+        "lime": "#00FF00",
+        "navy": "#000080",
+        "teal": "#008080",
+        "aqua": "#00FFFF",
+        "maroon": "#800000",
+        "olive": "#808000",
+        "violet": "#EE82EE",
+        "indigo": "#4B0082",
+        "turquoise": "#40E0D0",
+        "tan": "#D2B48C",
+        "beige": "#F5F5DC",
+        "coral": "#FF7F50",
+        "crimson": "#DC143C",
+        "lavender": "#E6E6FA",
+        "salmon": "#FA8072",
+        "peach": "#FFDAB9"
+    };
+
+    // List of most common English words (top 1000)
     var commonWords = [
+        // Articles, pronouns, conjunctions, prepositions (most common)
         "the", "be", "to", "of", "and", "a", "in", "that", "have", "i",
         "it", "for", "not", "on", "with", "he", "as", "you", "do", "at",
         "this", "but", "his", "by", "from", "they", "we", "say", "her", "she",
@@ -238,48 +275,150 @@ window.addEventListener('DOMContentLoaded', function() {
         "than", "then", "now", "look", "only", "come", "its", "over", "think", "also",
         "back", "after", "use", "two", "how", "our", "work", "first", "well", "way",
         "even", "new", "want", "because", "any", "these", "give", "day", "most", "us",
+
+        // Common verbs (present, past, gerund forms)
         "is", "was", "are", "been", "has", "had", "were", "said", "did", "having",
-        "may", "should", "could", "being", "does", "did", "doing", "would", "should", "can",
+        "may", "should", "could", "being", "does", "doing", "would", "can", "made", "find",
+        "tell", "ask", "work", "seem", "feel", "try", "leave", "call", "keep", "let",
+        "begin", "start", "stop", "end", "turn", "put", "hold", "stay", "wait", "follow",
+        "close", "walk", "run", "sit", "stand", "eat", "drink", "sleep", "wake", "read",
+        "write", "speak", "listen", "hear", "smell", "touch", "feel", "think", "know", "understand",
+        "remember", "forget", "learn", "teach", "answer", "help", "play", "buy", "sell", "give",
+        "bring", "send", "love", "need", "show", "move", "live", "believe", "allow", "add",
+        "meet", "include", "continue", "set", "learn", "change", "lead", "understand", "watch", "provide",
+        "serve", "die", "send", "expect", "build", "stay", "fall", "cut", "reach", "kill",
+
+        // Common nouns - people & body
         "man", "woman", "child", "boy", "girl", "family", "friend", "person", "life", "hand",
         "eye", "head", "face", "place", "door", "house", "room", "home", "world", "school",
-        "water", "food", "tree", "air", "fire", "sea", "sun", "moon", "star", "light",
-        "red", "blue", "green", "black", "white", "yellow", "big", "small", "long", "short",
-        "hot", "cold", "old", "young", "new", "good", "bad", "happy", "sad", "right",
-        "left", "high", "low", "near", "far", "fast", "slow", "early", "late", "open",
-        "close", "walk", "run", "sit", "stand", "eat", "drink", "sleep", "wake", "read",
-        "write", "speak", "listen", "see", "look", "hear", "smell", "touch", "feel", "think",
-        "know", "understand", "remember", "forget", "learn", "teach", "ask", "answer", "help", "work",
-        "play", "buy", "sell", "give", "take", "bring", "send", "love", "like", "want",
-        "need", "try", "use", "find", "keep", "let", "begin", "start", "stop", "end",
-        "turn", "call", "put", "hold", "stay", "leave", "wait", "follow", "fall", "sit",
-        "cat", "dog", "bird", "fish", "horse", "cow", "pig", "sheep", "chicken", "rabbit",
-        "bear", "lion", "tiger", "elephant", "monkey", "snake", "frog", "bee", "fly", "ant",
-        "book", "pen", "paper", "desk", "chair", "table", "bed", "window", "wall", "floor",
-        "car", "bus", "train", "plane", "ship", "boat", "bike", "road", "street", "bridge",
-        "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
-        "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday", "today", "yesterday", "tomorrow",
-        "morning", "afternoon", "evening", "night", "day", "week", "month", "year", "spring", "summer",
-        "fall", "autumn", "winter", "january", "february", "march", "april", "may", "june", "july",
-        "august", "september", "october", "november", "december", "hour", "minute", "second", "time", "clock",
-        "brother", "sister", "mother", "father", "son", "daughter", "husband", "wife", "uncle", "aunt",
-        "grandma", "grandpa", "baby", "kid", "teen", "adult", "mr", "mrs", "miss", "doctor",
-        "teacher", "student", "worker", "farmer", "cook", "driver", "nurse", "police", "soldier", "artist",
+        "mother", "father", "son", "daughter", "brother", "sister", "husband", "wife", "uncle", "aunt",
+        "grandma", "grandpa", "grandmother", "grandfather", "baby", "kid", "teen", "teenager", "adult", "parent",
+        "body", "arm", "leg", "foot", "feet", "finger", "toe", "ear", "nose", "mouth",
+        "hair", "skin", "heart", "blood", "bone", "brain", "muscle", "tooth", "teeth", "tongue",
+
+        // Occupations & titles
+        "mr", "mrs", "miss", "ms", "doctor", "teacher", "student", "worker", "farmer", "cook",
+        "driver", "nurse", "police", "officer", "soldier", "artist", "writer", "singer", "actor", "president",
+        "king", "queen", "prince", "princess", "chief", "manager", "boss", "leader", "member", "owner",
+
+        // Places & locations
         "city", "town", "village", "country", "state", "nation", "street", "park", "garden", "farm",
         "store", "shop", "market", "bank", "hospital", "church", "school", "library", "museum", "theater",
         "restaurant", "hotel", "office", "factory", "station", "airport", "port", "beach", "mountain", "river",
         "lake", "forest", "field", "island", "valley", "hill", "ocean", "desert", "sky", "cloud",
+        "area", "building", "center", "point", "side", "top", "bottom", "north", "south", "east",
+        "west", "corner", "edge", "middle", "end", "front", "road", "path", "yard", "ground",
+
+        // Nature & weather
+        "water", "food", "tree", "air", "fire", "sea", "sun", "moon", "star", "light",
         "rain", "snow", "wind", "storm", "ice", "weather", "season", "nature", "animal", "plant",
-        "flower", "grass", "leaf", "fruit", "vegetable", "apple", "orange", "banana", "grape", "lemon",
+        "flower", "grass", "leaf", "wood", "stone", "rock", "dirt", "sand", "dust", "mud",
+
+        // Animals
+        "cat", "dog", "bird", "fish", "horse", "cow", "pig", "sheep", "chicken", "rabbit",
+        "bear", "lion", "tiger", "elephant", "monkey", "snake", "frog", "bee", "fly", "ant",
+        "mouse", "rat", "wolf", "fox", "deer", "duck", "goose", "turkey", "owl", "eagle",
+
+        // Colors (all common colors)
+        "red", "blue", "green", "black", "white", "yellow", "orange", "purple", "pink", "brown",
+        "gray", "grey", "silver", "gold", "cyan", "magenta", "lime", "navy", "teal", "aqua",
+        "maroon", "olive", "violet", "indigo", "turquoise", "tan", "beige", "coral", "crimson", "lavender",
+        "salmon", "peach",
+
+        // Numbers (spelled out - AP/NYT style: spell out one-nine, some spell out to ninety-nine)
+        "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
+        "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen",
+        "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety",
+        "hundred", "thousand", "million", "billion", "trillion",
+        "first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth",
+
+        // Time & calendar
+        "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday",
+        "today", "yesterday", "tomorrow", "morning", "afternoon", "evening", "night", "day",
+        "week", "month", "year", "hour", "minute", "second", "time", "clock",
+        "january", "february", "march", "april", "may", "june", "july",
+        "august", "september", "october", "november", "december",
+        "spring", "summer", "fall", "autumn", "winter", "past", "present", "future",
+
+        // Food & drink
+        "fruit", "vegetable", "apple", "orange", "banana", "grape", "lemon", "strawberry", "cherry", "peach",
         "milk", "bread", "meat", "rice", "egg", "cheese", "butter", "salt", "sugar", "tea",
         "coffee", "juice", "soup", "cake", "cookie", "candy", "chocolate", "breakfast", "lunch", "dinner",
+        "chicken", "beef", "pork", "fish", "pizza", "pasta", "salad", "sandwich", "potato", "tomato",
+
+        // Objects & items
+        "book", "pen", "paper", "desk", "chair", "table", "bed", "window", "wall", "floor",
         "plate", "cup", "bowl", "spoon", "fork", "knife", "bottle", "glass", "box", "bag",
+        "car", "bus", "train", "plane", "ship", "boat", "bike", "bicycle", "truck", "vehicle",
         "shirt", "pants", "dress", "coat", "hat", "shoe", "sock", "glove", "belt", "watch",
-        "ring", "key", "money", "dollar", "cent", "card", "gift", "toy", "game", "ball",
-        "phone", "computer", "tv", "radio", "camera", "picture", "photo", "video", "music", "song",
-        "movie", "story", "news", "letter", "word", "sentence", "question", "answer", "number", "name",
-        "color", "shape", "size", "sound", "smell", "taste", "feeling", "idea", "thought", "dream",
-        "hope", "wish", "plan", "problem", "solution", "reason", "way", "kind", "type", "part",
-        "piece", "bit", "lot", "group", "team", "class", "club", "party", "meeting", "event"
+        "ring", "key", "money", "dollar", "cent", "coin", "card", "gift", "toy", "game",
+        "ball", "bat", "stick", "rope", "net", "flag", "sign", "tool", "wheel", "engine",
+
+        // Technology & communication
+        "phone", "computer", "tv", "television", "radio", "camera", "picture", "photo", "video", "music",
+        "song", "movie", "film", "show", "program", "internet", "email", "message", "text", "call",
+        "screen", "keyboard", "mouse", "button", "device", "machine", "system", "software", "app", "site",
+
+        // Abstract concepts & communication
+        "story", "news", "letter", "word", "sentence", "question", "answer", "number", "name", "title",
+        "color", "shape", "size", "sound", "taste", "feeling", "idea", "thought", "dream", "hope",
+        "wish", "plan", "problem", "solution", "reason", "way", "kind", "type", "part", "piece",
+        "bit", "lot", "group", "team", "class", "club", "party", "meeting", "event", "game",
+        "power", "fact", "truth", "law", "rule", "right", "order", "cause", "effect", "case",
+
+        // Descriptive adjectives
+        "big", "small", "long", "short", "tall", "high", "low", "wide", "narrow", "thick",
+        "thin", "heavy", "light", "hard", "soft", "hot", "cold", "warm", "cool", "wet",
+        "dry", "clean", "dirty", "new", "old", "young", "fresh", "strong", "weak", "loud",
+        "quiet", "fast", "slow", "quick", "early", "late", "open", "closed", "full", "empty",
+        "right", "wrong", "good", "bad", "great", "poor", "rich", "happy", "sad", "glad",
+        "angry", "afraid", "brave", "careful", "safe", "dangerous", "easy", "difficult", "hard", "simple",
+        "complex", "clear", "dark", "bright", "beautiful", "ugly", "pretty", "nice", "fine", "wonderful",
+        "special", "different", "same", "similar", "equal", "common", "rare", "usual", "strange", "normal",
+
+        // Adverbs & other descriptors
+        "very", "too", "quite", "rather", "pretty", "fairly", "really", "truly", "sure", "certainly",
+        "probably", "perhaps", "maybe", "almost", "nearly", "hardly", "barely", "only", "just", "still",
+        "yet", "already", "soon", "never", "ever", "always", "often", "sometimes", "usually", "seldom",
+        "here", "there", "where", "everywhere", "nowhere", "anywhere", "somewhere", "away", "around", "above",
+        "below", "under", "over", "between", "among", "near", "far", "close", "next", "beyond",
+        "forward", "backward", "inside", "outside", "up", "down", "left", "right", "straight", "across",
+
+        // Action & state
+        "happen", "become", "appear", "seem", "remain", "exist", "occur", "rise", "grow", "develop",
+        "increase", "decrease", "improve", "reduce", "produce", "create", "destroy", "break", "fix", "repair",
+        "open", "close", "push", "pull", "lift", "drop", "throw", "catch", "hit", "kick",
+        "jump", "climb", "swim", "fly", "drive", "ride", "wear", "carry", "hold", "pick",
+
+        // Social & emotion
+        "thank", "please", "sorry", "welcome", "hello", "goodbye", "yes", "no", "ok", "okay",
+        "sure", "fine", "great", "excellent", "wonderful", "terrible", "awful", "amazing", "interesting", "boring",
+
+        // Measurement & quantity
+        "large", "huge", "tiny", "giant", "much", "many", "few", "little", "more", "less",
+        "most", "least", "several", "enough", "plenty", "half", "quarter", "double", "triple", "single",
+        "whole", "entire", "complete", "total", "full", "partial", "some", "all", "none", "every",
+        "each", "both", "either", "neither", "another", "extra", "plus", "minus", "times", "equal",
+
+        // Business & money
+        "business", "company", "service", "product", "market", "price", "cost", "value", "worth", "pay",
+        "sell", "buy", "trade", "deal", "offer", "customer", "client", "store", "shop", "sale",
+
+        // Education & learning
+        "study", "subject", "lesson", "course", "test", "exam", "grade", "score", "knowledge", "skill",
+        "practice", "exercise", "homework", "project", "paper", "report", "research", "science", "math", "history",
+
+        // Government & society
+        "government", "law", "court", "judge", "jury", "trial", "crime", "police", "army", "war",
+        "peace", "vote", "election", "tax", "citizen", "community", "society", "public", "private", "local",
+
+        // Health & medical
+        "health", "sick", "ill", "disease", "pain", "hurt", "medicine", "drug", "cure", "treatment",
+        "care", "hospital", "doctor", "patient", "injury", "accident", "emergency", "death", "birth", "alive",
+
+        // Materials & substances
+        "metal", "iron", "steel", "copper", "plastic", "glass", "cloth", "fabric", "leather", "rubber",
+        "oil", "gas", "coal", "fuel", "chemical", "acid", "powder", "liquid", "solid", "material"
     ];
 
     // Check if a word is in the common words list
@@ -287,8 +426,21 @@ window.addEventListener('DOMContentLoaded', function() {
         return commonWords.includes(word.toLowerCase());
     }
 
-    // Generate random color
-    function getRandomColor() {
+    // Get color for a word (matching color for color words, random otherwise)
+    function getColorForWord(word) {
+        var lowerWord = word.toLowerCase();
+
+        // If it's a color word, return the matching color
+        if (colorMap[lowerWord]) {
+            var color = colorMap[lowerWord];
+            // For very light colors on white background, darken them
+            if (lowerWord === "white" || lowerWord === "yellow" || lowerWord === "beige" || lowerWord === "lavender") {
+                return "#333333"; // Use dark gray for readability
+            }
+            return color;
+        }
+
+        // Otherwise return a random color
         var colors = [
             '#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8',
             '#F7DC6F', '#BB8FCE', '#85C1E2', '#F8B739', '#52B788',
@@ -435,7 +587,7 @@ window.addEventListener('DOMContentLoaded', function() {
                 textElement.className = 'word-text';
                 textElement.textContent = word;
                 textElement.style.fontFamily = getRandomFont();
-                textElement.style.color = getRandomColor();
+                textElement.style.color = getColorForWord(word);
 
                 cardDiv.appendChild(textElement);
                 wordCardsContainer.appendChild(cardElement);
