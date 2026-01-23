@@ -226,6 +226,93 @@ window.addEventListener('DOMContentLoaded', function() {
     var imageManifest = null; // Manifest loaded from server
     var currentWordCards = []; // Track currently displayed word cards
 
+    // List of most common English words (top 500)
+    var commonWords = [
+        "the", "be", "to", "of", "and", "a", "in", "that", "have", "i",
+        "it", "for", "not", "on", "with", "he", "as", "you", "do", "at",
+        "this", "but", "his", "by", "from", "they", "we", "say", "her", "she",
+        "or", "an", "will", "my", "one", "all", "would", "there", "their", "what",
+        "so", "up", "out", "if", "about", "who", "get", "which", "go", "me",
+        "when", "make", "can", "like", "time", "no", "just", "him", "know", "take",
+        "people", "into", "year", "your", "good", "some", "could", "them", "see", "other",
+        "than", "then", "now", "look", "only", "come", "its", "over", "think", "also",
+        "back", "after", "use", "two", "how", "our", "work", "first", "well", "way",
+        "even", "new", "want", "because", "any", "these", "give", "day", "most", "us",
+        "is", "was", "are", "been", "has", "had", "were", "said", "did", "having",
+        "may", "should", "could", "being", "does", "did", "doing", "would", "should", "can",
+        "man", "woman", "child", "boy", "girl", "family", "friend", "person", "life", "hand",
+        "eye", "head", "face", "place", "door", "house", "room", "home", "world", "school",
+        "water", "food", "tree", "air", "fire", "sea", "sun", "moon", "star", "light",
+        "red", "blue", "green", "black", "white", "yellow", "big", "small", "long", "short",
+        "hot", "cold", "old", "young", "new", "good", "bad", "happy", "sad", "right",
+        "left", "high", "low", "near", "far", "fast", "slow", "early", "late", "open",
+        "close", "walk", "run", "sit", "stand", "eat", "drink", "sleep", "wake", "read",
+        "write", "speak", "listen", "see", "look", "hear", "smell", "touch", "feel", "think",
+        "know", "understand", "remember", "forget", "learn", "teach", "ask", "answer", "help", "work",
+        "play", "buy", "sell", "give", "take", "bring", "send", "love", "like", "want",
+        "need", "try", "use", "find", "keep", "let", "begin", "start", "stop", "end",
+        "turn", "call", "put", "hold", "stay", "leave", "wait", "follow", "fall", "sit",
+        "cat", "dog", "bird", "fish", "horse", "cow", "pig", "sheep", "chicken", "rabbit",
+        "bear", "lion", "tiger", "elephant", "monkey", "snake", "frog", "bee", "fly", "ant",
+        "book", "pen", "paper", "desk", "chair", "table", "bed", "window", "wall", "floor",
+        "car", "bus", "train", "plane", "ship", "boat", "bike", "road", "street", "bridge",
+        "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
+        "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday", "today", "yesterday", "tomorrow",
+        "morning", "afternoon", "evening", "night", "day", "week", "month", "year", "spring", "summer",
+        "fall", "autumn", "winter", "january", "february", "march", "april", "may", "june", "july",
+        "august", "september", "october", "november", "december", "hour", "minute", "second", "time", "clock",
+        "brother", "sister", "mother", "father", "son", "daughter", "husband", "wife", "uncle", "aunt",
+        "grandma", "grandpa", "baby", "kid", "teen", "adult", "mr", "mrs", "miss", "doctor",
+        "teacher", "student", "worker", "farmer", "cook", "driver", "nurse", "police", "soldier", "artist",
+        "city", "town", "village", "country", "state", "nation", "street", "park", "garden", "farm",
+        "store", "shop", "market", "bank", "hospital", "church", "school", "library", "museum", "theater",
+        "restaurant", "hotel", "office", "factory", "station", "airport", "port", "beach", "mountain", "river",
+        "lake", "forest", "field", "island", "valley", "hill", "ocean", "desert", "sky", "cloud",
+        "rain", "snow", "wind", "storm", "ice", "weather", "season", "nature", "animal", "plant",
+        "flower", "grass", "leaf", "fruit", "vegetable", "apple", "orange", "banana", "grape", "lemon",
+        "milk", "bread", "meat", "rice", "egg", "cheese", "butter", "salt", "sugar", "tea",
+        "coffee", "juice", "soup", "cake", "cookie", "candy", "chocolate", "breakfast", "lunch", "dinner",
+        "plate", "cup", "bowl", "spoon", "fork", "knife", "bottle", "glass", "box", "bag",
+        "shirt", "pants", "dress", "coat", "hat", "shoe", "sock", "glove", "belt", "watch",
+        "ring", "key", "money", "dollar", "cent", "card", "gift", "toy", "game", "ball",
+        "phone", "computer", "tv", "radio", "camera", "picture", "photo", "video", "music", "song",
+        "movie", "story", "news", "letter", "word", "sentence", "question", "answer", "number", "name",
+        "color", "shape", "size", "sound", "smell", "taste", "feeling", "idea", "thought", "dream",
+        "hope", "wish", "plan", "problem", "solution", "reason", "way", "kind", "type", "part",
+        "piece", "bit", "lot", "group", "team", "class", "club", "party", "meeting", "event"
+    ];
+
+    // Check if a word is in the common words list
+    function isCommonWord(word) {
+        return commonWords.includes(word.toLowerCase());
+    }
+
+    // Generate random color
+    function getRandomColor() {
+        var colors = [
+            '#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8',
+            '#F7DC6F', '#BB8FCE', '#85C1E2', '#F8B739', '#52B788',
+            '#E63946', '#457B9D', '#F77F00', '#06FFA5', '#9B5DE5',
+            '#F15BB5', '#00BBF9', '#00F5FF', '#FEE440', '#FB5607'
+        ];
+        return colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    // Generate random font family
+    function getRandomFont() {
+        var fonts = [
+            "'Indie Flower', cursive",
+            "'Cardo', Georgia, serif",
+            "'Birthstone', cursive",
+            "'Atkinson Hyperlegible Mono', monospace",
+            "Georgia, serif",
+            "'Comic Sans MS', cursive",
+            "Impact, fantasy",
+            "'Trebuchet MS', sans-serif"
+        ];
+        return fonts[Math.floor(Math.random() * fonts.length)];
+    }
+
     // Load the image manifest once on startup
     async function loadImageManifest(showStatus) {
         if (showStatus && manifestStatusEl) {
@@ -332,6 +419,25 @@ window.addEventListener('DOMContentLoaded', function() {
                     this.parentElement.style.display = 'none';
                 });
 
+                wordCardsContainer.appendChild(cardElement);
+                currentWordCards.push(word);
+            } else if (isCommonWord(word)) {
+                // Create text-based card for common words without images
+                var cardElement = wordCardTemplate.content.cloneNode(true);
+                var cardDiv = cardElement.querySelector('.word-card');
+                var imgElement = cardElement.querySelector('.word-image');
+
+                // Remove the image element and replace with text
+                imgElement.remove();
+
+                // Create text display element
+                var textElement = document.createElement('div');
+                textElement.className = 'word-text';
+                textElement.textContent = word;
+                textElement.style.fontFamily = getRandomFont();
+                textElement.style.color = getRandomColor();
+
+                cardDiv.appendChild(textElement);
                 wordCardsContainer.appendChild(cardElement);
                 currentWordCards.push(word);
             }

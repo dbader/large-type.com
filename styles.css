@@ -278,6 +278,22 @@ input::-webkit-input-placeholder {
     width: 100%;
 }
 
+.word-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    font-weight: bold;
+    padding: 40px;
+    text-align: center;
+    min-height: 150px;
+    min-width: 150px;
+    max-height: 300px;
+    max-width: 300px;
+    word-wrap: break-word;
+    text-transform: uppercase;
+}
+
 @media only screen and (max-width: 700px) {
     .word-cards-container {
         gap: 15px;
@@ -289,6 +305,15 @@ input::-webkit-input-placeholder {
         max-width: 200px;
         min-height: 100px;
         min-width: 100px;
+    }
+
+    .word-text {
+        font-size: 32px;
+        padding: 30px;
+        min-height: 100px;
+        min-width: 100px;
+        max-height: 200px;
+        max-width: 200px;
     }
 }
 
